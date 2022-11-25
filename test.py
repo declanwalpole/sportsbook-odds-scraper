@@ -1,5 +1,6 @@
 import requests
 import pickle
+import json
 
 # Define classes
 
@@ -171,3 +172,19 @@ with open('markets.pickle', 'wb') as f:
 with open('selections.pickle', 'wb') as f:
     # Pickle the 'data' dictionary using the highest protocol available.
     pickle.dump(selection_list, f, pickle.HIGHEST_PROTOCOL)
+
+json_string = json.dumps([ob.__dict__ for ob in match_list])
+with open('events.json', 'w') as f:
+    # Pickle the 'data' dictionary using the highest protocol available.
+    f.write(json_string)
+
+
+json_string2 = json.dumps([ob.__dict__ for ob in market_list])
+with open('markets.json', 'w') as f:
+    # Pickle the 'data' dictionary using the highest protocol available.
+    f.write(json_string2)
+
+json_string3 = json.dumps([ob.__dict__ for ob in selection_list])
+with open('selections.json', 'w') as f:
+    # Pickle the 'data' dictionary using the highest protocol available.
+    f.write(json_string3)
