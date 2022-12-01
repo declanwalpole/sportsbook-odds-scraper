@@ -1,6 +1,7 @@
 import requests
 import pickle
 import json
+import csv
 
 # Define classes
 
@@ -133,58 +134,101 @@ for e in events:
     for g in G:
         if g['name'] in cats:
             categories_of_interest.append(g['componentizedOffers'])
+    if len(categories_of_interest):
+        categories_of_interest = categories_of_interest[0]
 
-    categories_of_interest = categories_of_interest[0]
+        for c in categories_of_interest:
+            print('\n'+c['subcategoryName']+'\n')
+            offers = c['offers'][0]
 
-    for c in categories_of_interest:
-        print('\n'+c['subcategoryName']+'\n')
-        offers = c['offers'][0]
+            for o in offers:
+                if not o['isSuspended'] and o['isOpen']:
 
-        for o in offers:
-            if not o['isSuspended'] and o['isOpen']:
+                    market = translate_DK_to_market_dict(
+                        o, eventId, c['subcategoryName'])
+                    market_list.append(market)
 
-                market = translate_DK_to_market_dict(
-                    o, eventId, c['subcategoryName'])
-                market_list.append(market)
+                    print(market)
+                    outcomes = o['outcomes']
 
-                print(market)
-                outcomes = o['outcomes']
+                    for a in outcomes:
 
-                for a in outcomes:
+                        selection = translate_DK_to_selection_dict(
+                            a, market.market_id)
+                        selection_list.append(selection)
 
-                    selection = translate_DK_to_selection_dict(
-                        a, market.market_id)
-                    selection_list.append(selection)
-
-                    print('\t'+str(selection))
+                        print('\t'+str(selection))
 
 # Store data to files as pickled
 
-with open('events.pickle', 'wb') as f:
-    # Pickle the 'data' dictionary using the highest protocol available.
-    pickle.dump(match_list, f, pickle.HIGHEST_PROTOCOL)
+# with open('events.pickle', 'wb') as f:
+#     # Pickle the 'data' dictionary using the highest protocol available.
+#     pickle.dump(match_list, f, pickle.HIGHEST_PROTOCOL)
 
-with open('markets.pickle', 'wb') as f:
-    # Pickle the 'data' dictionary using the highest protocol available.
-    pickle.dump(market_list, f, pickle.HIGHEST_PROTOCOL)
-
-
-with open('selections.pickle', 'wb') as f:
-    # Pickle the 'data' dictionary using the highest protocol available.
-    pickle.dump(selection_list, f, pickle.HIGHEST_PROTOCOL)
-
-json_string = json.dumps([ob.__dict__ for ob in match_list])
-with open('events.json', 'w') as f:
-    # Pickle the 'data' dictionary using the highest protocol available.
-    f.write(json_string)
+# with open('markets.pickle', 'wb') as f:
+#     # Pickle the 'data' dictionary using the highest protocol available.
+#     pickle.dump(market_list, f, pickle.HIGHEST_PROTOCOL)
 
 
-json_string2 = json.dumps([ob.__dict__ for ob in market_list])
-with open('markets.json', 'w') as f:
-    # Pickle the 'data' dictionary using the highest protocol available.
-    f.write(json_string2)
+# with open('selections.pickle', 'wb') as f:
+#     # Pickle the 'data' dictionary using the highest protocol available.
+#     pickle.dump(selection_list, f, pickle.HIGHEST_PROTOCOL)
 
-json_string3 = json.dumps([ob.__dict__ for ob in selection_list])
-with open('selections.json', 'w') as f:
-    # Pickle the 'data' dictionary using the highest protocol available.
-    f.write(json_string3)
+# json_string = json.dumps([ob.__dict__ for ob in match_list])
+# with open('events.json', 'w') as f:
+#     # Pickle the 'data' dictionary using the highest protocol available.
+#     f.write(json_string)
+
+
+# json_string2 = json.dumps([ob.__dict__ for ob in market_list])
+# with open('markets.json', 'w') as f:
+#     # Pickle the 'data' dictionary using the highest protocol available.
+#     f.write(json_string2)
+
+# json_string3 = json.dumps([ob.__dict__ for ob in selection_list])
+# with open('selections.json', 'w') as f:
+#     # Pickle the 'data' dictionary using the highest protocol available.
+#     f.write(json_string3)
+
+try:
+    with open('events.csv', 'w', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow(['event_name', 'league', 'event_id',
+                        'team1', 'team2', 'starts_at', 'event_status'])
+        for item in match_list:
+            # print(item)
+            writer.writerow([item.event_name, item.league, item.event_id,
+                            item.team1, item.team2, item.starts_at, item.event_status])
+except BaseException as e:
+    print('BaseException:'+e)
+else:
+    print('Events have been written to csv successfully !')
+
+
+try:
+    with open('markets.csv', 'w', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow(
+            ['event_id', 'market_id', 'market_group', 'market_name'])
+        for item in market_list:
+            # print(item)
+            writer.writerow([item.event_id, item.market_id,
+                            item.market_group, item.market_name])
+except BaseException as e:
+    print('BaseException:'+e)
+else:
+    print('Markets have been written to csv successfully !')
+
+try:
+    with open('selections.csv', 'w', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow(['market_id', 'selection_id',
+                        'selection_name', 'odds', 'line'])
+        for item in selection_list:
+            # print(item)
+            writer.writerow([item.market_id, item.selection_id, item.selection_name,
+                            item.odds, item.line])
+except BaseException as e:
+    print('BaseException:'+e)
+else:
+    print('Selections have been written to csv successfully !')

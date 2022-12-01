@@ -1,0 +1,490 @@
+event_id,market_id,market_group,market_name
+26843988,2_64983543,Game,Spread
+26843988,3_64983543,Game,Total
+26843988,1_64983543,Game,Moneyline
+26843988,127661438,Anytime TD Scorer,Anytime Touchdown Scorer
+26843988,127661441,First TD Scorer,First Touchdown Scorer
+26843988,127642718,Pass TDs,Josh Allen Passing Touchdowns
+26843988,127631314,Pass TDs,Mac Jones Passing Touchdowns
+26843988,127642717,Pass Yds,Josh Allen Passing Yards
+26843988,127631310,Pass Yds,Mac Jones Passing Yards
+26843988,127642349,Rush Yds,Devin Singletary Rushing Yards
+26843988,127747240,Rush Yds,Isaiah McKenzie Rushing Yards
+26843988,127747433,Rush Yds,James Cook Rushing Yards
+26843988,127656410,Rush Yds,Josh Allen Rushing Yards
+26843988,127818809,Rush Yds,Mac Jones Rushing Yards
+26843988,127631312,Rush Yds,Rhamondre Stevenson Rushing Yards
+26843988,127656224,Rec Yds,Dawson Knox Receiving Yards
+26843988,127817670,Rec Yds,DeVante Parker Receiving Yards
+26843988,127642347,Rec Yds,Devin Singletary Receiving Yards
+26843988,127642927,Rec Yds,Gabriel Davis Receiving Yards
+26843988,127816851,Rec Yds,Hunter Henry Receiving Yards
+26843988,127656552,Rec Yds,Isaiah McKenzie Receiving Yards
+26843988,127817649,Rec Yds,Jakobi Meyers Receiving Yards
+26843988,127816870,Rec Yds,Jonnu Smith Receiving Yards
+26843988,127631311,Rec Yds,Rhamondre Stevenson Receiving Yards
+26843988,127642725,Rec Yds,Stefon Diggs Receiving Yards
+26843988,127747414,Receptions,Dawson Knox Receptions
+26843988,127642345,Receptions,Devin Singletary Receptions
+26843988,127747185,Receptions,Gabriel Davis Receptions
+26843988,127816865,Receptions,Hunter Henry Receptions
+26843988,127747242,Receptions,Isaiah McKenzie Receptions
+26843988,127817648,Receptions,Jakobi Meyers Receptions
+26843988,127816871,Receptions,Jonnu Smith Receptions
+26843988,127818783,Receptions,Rhamondre Stevenson Receptions
+26843988,127747184,Receptions,Stefon Diggs Receptions
+26843988,127745864,Pass Yds H2H,Mac Jones & Josh Allen - Passing Yards Total
+26843988,127745873,Pass Yds H2H,Mac Jones v Josh Allen - Passing Yards Moneyline
+26843988,127745848,Pass Yds H2H,Mac Jones v Josh Allen - Passing Yards Spread
+26843988,127745867,Pass TDs H2H,Mac Jones & Josh Allen - Passing Touchdowns Total
+26843988,127745878,Pass TDs H2H,Mac Jones v Josh Allen - Passing Touchdowns Moneyline
+26843988,127745859,Pass TDs H2H,Mac Jones v Josh Allen - Passing Touchdowns Spread
+26843988,127745869,Rush Yds H2H,Rhamondre Stevenson & Devin Singletary - Rushing Yards Total
+26843988,127745877,Rush Yds H2H,Rhamondre Stevenson v Devin Singletary - Rushing Yards Moneyline
+26843988,127745858,Rush Yds H2H,Rhamondre Stevenson v Devin Singletary - Rushing Yards Spread
+26843988,3_68127068,Team Totals,NE Patriots: Team Total Touchdowns
+26843988,3_68127069,Team Totals,BUF Bills: Team Total Touchdowns
+26843988,3_68127071,Team Totals,NE Patriots: Team Total Points
+26843988,3_68127072,Team Totals,BUF Bills: Team Total Points
+26843988,127613774,Team Totals (Bands),BUF Bills Total Points Bands
+26843988,127613775,Team Totals (Bands),NE Patriots Total Points Bands
+26843988,127636597,Drive Props,1st BUF Bills Drive Result
+26843988,127636595,Drive Props,1st BUF Bills Drive Result Grouped
+26843988,127613727,Drive Props,1st Drive - Field Goal Made
+26843988,127636596,Drive Props,1st NE Patriots Drive Result
+26843988,127636598,Drive Props,1st NE Patriots Drive Result Grouped
+26843988,127808820,Drive Props,Offensive Score on 1st Drive of the Game
+26843988,127577850,1st Score,1st Score - on or after 7:00 Elapsed
+26843988,3_68127080,1st Score,1st Score Yards
+26843988,1_68127073,1st Score,1st to Score
+26843988,127000398,1st Score,1st Touchdown - on or after 10:00 Elapsed
+26843988,3_68127079,1st Score,1st Touchdown Yards
+26843988,127613716,1st Score,First Scoring Play Type (6 Way)
+26843988,127613717,1st Score Method,First Score Method 3-Way
+26843988,2_68118244,1st Half,Spread 1st Half
+26843988,3_68118244,1st Half,Total 1st Half
+26843988,1_68118244,1st Half,Moneyline 1st Half
+26843988,2_68118245,1st Quarter,Spread 1st Quarter
+26843988,3_68118245,1st Quarter,Total 1st Quarter
+26843988,1_68118245,1st Quarter,Moneyline 1st Quarter
+26843988,2_68127090,2nd Quarter,Spread 2nd Quarter
+26843988,3_68127090,2nd Quarter,Total 2nd Quarter
+26843988,1_68127090,2nd Quarter,Moneyline 2nd Quarter
+26843988,2_68127091,3rd Quarter,Spread 3rd Quarter
+26843988,3_68127091,3rd Quarter,Total 3rd Quarter
+26843988,1_68127091,3rd Quarter,Moneyline 3rd Quarter
+26843988,2_68127092,4th Quarter,Spread 4th Quarter
+26843988,3_68127092,4th Quarter,Total 4th Quarter
+26843988,1_68127092,4th Quarter,Moneyline 4th Quarter
+26843994,2_64983549,Game,Spread
+26843994,3_64983549,Game,Total
+26843994,1_64983549,Game,Moneyline
+26843994,3_68127172,Team Totals,MIN Vikings: Team Total Touchdowns
+26843994,3_68127173,Team Totals,NY Jets: Team Total Touchdowns
+26843994,3_68127176,Team Totals,NY Jets: Team Total Points
+26843994,3_68127175,Team Totals,MIN Vikings: Team Total Points
+26843994,127614085,Team Totals (Bands),MIN Vikings Total Points Bands
+26843994,127614084,Team Totals (Bands),NY Jets Total Points Bands
+26843994,127614037,Drive Props,1st Drive - Field Goal Made
+26843994,127001338,1st Score,1st Field Goal - on or after 14:00 Elapsed
+26843994,127001337,1st Score,1st Score - on or after 7:00 Elapsed
+26843994,3_68127184,1st Score,1st Score Yards
+26843994,1_68127177,1st Score,1st to Score
+26843994,127001346,1st Score,1st Touchdown - on or after 10:00 Elapsed
+26843994,3_68127183,1st Score,1st Touchdown Yards
+26843994,127614026,1st Score,First Scoring Play Type (6 Way)
+26843994,127614027,1st Score Method,First Score Method 3-Way
+26843994,2_68118246,1st Half,Spread 1st Half
+26843994,3_68118246,1st Half,Total 1st Half
+26843994,1_68118246,1st Half,Moneyline 1st Half
+26843994,2_68118247,1st Quarter,Spread 1st Quarter
+26843994,3_68118247,1st Quarter,Total 1st Quarter
+26843994,1_68118247,1st Quarter,Moneyline 1st Quarter
+26843994,2_68127194,2nd Quarter,Spread 2nd Quarter
+26843994,3_68127194,2nd Quarter,Total 2nd Quarter
+26843994,1_68127194,2nd Quarter,Moneyline 2nd Quarter
+26843994,2_68127195,3rd Quarter,Spread 3rd Quarter
+26843994,3_68127195,3rd Quarter,Total 3rd Quarter
+26843994,1_68127195,3rd Quarter,Moneyline 3rd Quarter
+26843994,2_68127196,4th Quarter,Spread 4th Quarter
+26843994,3_68127196,4th Quarter,Total 4th Quarter
+26843994,1_68127196,4th Quarter,Moneyline 4th Quarter
+26843995,2_64983550,Game,Spread
+26843995,3_64983550,Game,Total
+26843995,1_64983550,Game,Moneyline
+26843995,3_68127199,Team Totals,WAS Commanders: Team Total Touchdowns
+26843995,3_68127198,Team Totals,NY Giants: Team Total Touchdowns
+26843995,3_68127201,Team Totals,NY Giants: Team Total Points
+26843995,3_68127202,Team Totals,WAS Commanders: Team Total Points
+26843995,127614162,Team Totals (Bands),NY Giants Total Points Bands
+26843995,127614161,Team Totals (Bands),WAS Commanders Total Points Bands
+26843995,127614114,Drive Props,1st Drive - Field Goal Made
+26843995,127594761,1st Score,1st Field Goal - on or after 13:00 Elapsed
+26843995,127001383,1st Score,1st Score - on or after 7:00 Elapsed
+26843995,3_68127210,1st Score,1st Score Yards
+26843995,1_68127203,1st Score,1st to Score
+26843995,127001428,1st Score,1st Touchdown - on or after 11:00 Elapsed
+26843995,3_68127209,1st Score,1st Touchdown Yards
+26843995,127614103,1st Score,First Scoring Play Type (6 Way)
+26843995,127614104,1st Score Method,First Score Method 3-Way
+26843995,2_68118395,1st Half,Spread 1st Half
+26843995,3_68118395,1st Half,Total 1st Half
+26843995,1_68118395,1st Half,Moneyline 1st Half
+26843995,2_68118396,1st Quarter,Spread 1st Quarter
+26843995,3_68118396,1st Quarter,Total 1st Quarter
+26843995,1_68118396,1st Quarter,Moneyline 1st Quarter
+26843995,2_68127220,2nd Quarter,Spread 2nd Quarter
+26843995,3_68127220,2nd Quarter,Total 2nd Quarter
+26843995,1_68127220,2nd Quarter,Moneyline 2nd Quarter
+26843995,2_68127221,3rd Quarter,Spread 3rd Quarter
+26843995,3_68127221,3rd Quarter,Total 3rd Quarter
+26843995,1_68127221,3rd Quarter,Moneyline 3rd Quarter
+26843995,2_68127222,4th Quarter,Spread 4th Quarter
+26843995,3_68127222,4th Quarter,Total 4th Quarter
+26843995,1_68127222,4th Quarter,Moneyline 4th Quarter
+26843996,2_64983551,Game,Spread
+26843996,3_64983551,Game,Total
+26843996,1_64983551,Game,Moneyline
+26843996,3_68139267,Team Totals,TEN Titans: Team Total Touchdowns
+26843996,3_68139266,Team Totals,PHI Eagles: Team Total Touchdowns
+26843996,3_68139270,Team Totals,TEN Titans: Team Total Points
+26843996,3_68139269,Team Totals,PHI Eagles: Team Total Points
+26843996,127706715,Team Totals (Bands),PHI Eagles Total Points Bands
+26843996,127706714,Team Totals (Bands),TEN Titans Total Points Bands
+26843996,127706667,Drive Props,1st Drive - Field Goal Made
+26843996,127594762,1st Score,1st Score - on or after 7:00 Elapsed
+26843996,3_68139278,1st Score,1st Score Yards
+26843996,1_68139271,1st Score,1st to Score
+26843996,3_68139277,1st Score,1st Touchdown Yards
+26843996,127706656,1st Score,First Scoring Play Type (6 Way)
+26843996,127706657,1st Score Method,First Score Method 3-Way
+26843996,2_68138334,1st Half,Spread 1st Half
+26843996,3_68138334,1st Half,Total 1st Half
+26843996,1_68138334,1st Half,Moneyline 1st Half
+26843996,2_68138335,1st Quarter,Spread 1st Quarter
+26843996,3_68138335,1st Quarter,Total 1st Quarter
+26843996,1_68138335,1st Quarter,Moneyline 1st Quarter
+26843996,2_68139288,2nd Quarter,Spread 2nd Quarter
+26843996,3_68139288,2nd Quarter,Total 2nd Quarter
+26843996,1_68139288,2nd Quarter,Moneyline 2nd Quarter
+26843996,2_68139289,3rd Quarter,Spread 3rd Quarter
+26843996,3_68139289,3rd Quarter,Total 3rd Quarter
+26843996,1_68139289,3rd Quarter,Moneyline 3rd Quarter
+26843996,2_68139290,4th Quarter,Spread 4th Quarter
+26843996,3_68139290,4th Quarter,Total 4th Quarter
+26843996,1_68139290,4th Quarter,Moneyline 4th Quarter
+26843990,2_64983545,Game,Spread
+26843990,3_64983545,Game,Total
+26843990,1_64983545,Game,Moneyline
+26843990,3_68127095,Team Totals,DEN Broncos: Team Total Touchdowns
+26843990,3_68127094,Team Totals,BAL Ravens: Team Total Touchdowns
+26843990,3_68127098,Team Totals,DEN Broncos: Team Total Points
+26843990,3_68127097,Team Totals,BAL Ravens: Team Total Points
+26843990,127613852,Team Totals (Bands),BAL Ravens Total Points Bands
+26843990,127613851,Team Totals (Bands),DEN Broncos Total Points Bands
+26843990,127613804,Drive Props,1st Drive - Field Goal Made
+26843990,127594778,1st Score,1st Field Goal - on or after 13:00 Elapsed
+26843990,127000626,1st Score,1st Score - on or after 7:00 Elapsed
+26843990,3_68127106,1st Score,1st Score Yards
+26843990,1_68127099,1st Score,1st to Score
+26843990,127591524,1st Score,1st Touchdown - on or after 12:00 Elapsed
+26843990,3_68127105,1st Score,1st Touchdown Yards
+26843990,127613793,1st Score,First Scoring Play Type (6 Way)
+26843990,127613794,1st Score Method,First Score Method 3-Way
+26843990,2_68118248,1st Half,Spread 1st Half
+26843990,3_68118248,1st Half,Total 1st Half
+26843990,1_68118248,1st Half,Moneyline 1st Half
+26843990,2_68118249,1st Quarter,Spread 1st Quarter
+26843990,3_68118249,1st Quarter,Total 1st Quarter
+26843990,1_68118249,1st Quarter,Moneyline 1st Quarter
+26843990,2_68127116,2nd Quarter,Spread 2nd Quarter
+26843990,3_68127116,2nd Quarter,Total 2nd Quarter
+26843990,1_68127116,2nd Quarter,Moneyline 2nd Quarter
+26843990,2_68127117,3rd Quarter,Spread 3rd Quarter
+26843990,3_68127117,3rd Quarter,Total 3rd Quarter
+26843990,1_68127117,3rd Quarter,Moneyline 3rd Quarter
+26843990,2_68127118,4th Quarter,Spread 4th Quarter
+26843990,3_68127118,4th Quarter,Total 4th Quarter
+26843990,1_68127118,4th Quarter,Moneyline 4th Quarter
+26843993,2_64983548,Game,Spread
+26843993,3_64983548,Game,Total
+26843993,1_64983548,Game,Moneyline
+26843993,3_68127146,Team Totals,HOU Texans: Team Total Touchdowns
+26843993,3_68127147,Team Totals,CLE Browns: Team Total Touchdowns
+26843993,3_68127149,Team Totals,HOU Texans: Team Total Points
+26843993,3_68127150,Team Totals,CLE Browns: Team Total Points
+26843993,127614007,Team Totals (Bands),CLE Browns Total Points Bands
+26843993,127614008,Team Totals (Bands),HOU Texans Total Points Bands
+26843993,127613960,Drive Props,1st Drive - Field Goal Made
+26843993,127001182,1st Score,1st Score - on or after 6:00 Elapsed
+26843993,3_68127158,1st Score,1st Score Yards
+26843993,1_68127151,1st Score,1st to Score
+26843993,127606706,1st Score,1st Touchdown - on or after 9:00 Elapsed
+26843993,3_68127157,1st Score,1st Touchdown Yards
+26843993,127613949,1st Score,First Scoring Play Type (6 Way)
+26843993,127613950,1st Score Method,First Score Method 3-Way
+26843993,2_68118787,1st Half,Spread 1st Half
+26843993,3_68118787,1st Half,Total 1st Half
+26843993,1_68118787,1st Half,Moneyline 1st Half
+26843993,2_68118788,1st Quarter,Spread 1st Quarter
+26843993,3_68118788,1st Quarter,Total 1st Quarter
+26843993,1_68118788,1st Quarter,Moneyline 1st Quarter
+26843993,2_68127168,2nd Quarter,Spread 2nd Quarter
+26843993,3_68127168,2nd Quarter,Total 2nd Quarter
+26843993,1_68127168,2nd Quarter,Moneyline 2nd Quarter
+26843993,2_68127169,3rd Quarter,Spread 3rd Quarter
+26843993,3_68127169,3rd Quarter,Total 3rd Quarter
+26843993,1_68127169,3rd Quarter,Moneyline 3rd Quarter
+26843993,2_68127170,4th Quarter,Spread 4th Quarter
+26843993,3_68127170,4th Quarter,Total 4th Quarter
+26843993,1_68127170,4th Quarter,Moneyline 4th Quarter
+26843992,2_64983547,Game,Spread
+26843992,3_64983547,Game,Total
+26843992,1_64983547,Game,Moneyline
+26843992,3_68127120,Team Totals,DET Lions: Team Total Touchdowns
+26843992,3_68127121,Team Totals,JAX Jaguars: Team Total Touchdowns
+26843992,3_68127123,Team Totals,DET Lions: Team Total Points
+26843992,3_68127124,Team Totals,JAX Jaguars: Team Total Points
+26843992,127613929,Team Totals (Bands),DET Lions Total Points Bands
+26843992,127613928,Team Totals (Bands),JAX Jaguars Total Points Bands
+26843992,127613881,Drive Props,1st Drive - Field Goal Made
+26843992,127000878,1st Score,1st Score - on or after 6:00 Elapsed
+26843992,3_68127132,1st Score,1st Score Yards
+26843992,1_68127125,1st Score,1st to Score
+26843992,127574942,1st Score,1st Touchdown - on or after 8:00 Elapsed
+26843992,3_68127131,1st Score,1st Touchdown Yards
+26843992,127613870,1st Score,First Scoring Play Type (6 Way)
+26843992,127613871,1st Score Method,First Score Method 3-Way
+26843992,2_68118393,1st Half,Spread 1st Half
+26843992,3_68118393,1st Half,Total 1st Half
+26843992,1_68118393,1st Half,Moneyline 1st Half
+26843992,2_68118394,1st Quarter,Spread 1st Quarter
+26843992,3_68118394,1st Quarter,Total 1st Quarter
+26843992,1_68118394,1st Quarter,Moneyline 1st Quarter
+26843992,2_68127142,2nd Quarter,Spread 2nd Quarter
+26843992,3_68127142,2nd Quarter,Total 2nd Quarter
+26843992,1_68127142,2nd Quarter,Moneyline 2nd Quarter
+26843992,2_68127143,3rd Quarter,Spread 3rd Quarter
+26843992,3_68127143,3rd Quarter,Total 3rd Quarter
+26843992,1_68127143,3rd Quarter,Moneyline 3rd Quarter
+26843992,2_68127144,4th Quarter,Spread 4th Quarter
+26843992,3_68127144,4th Quarter,Total 4th Quarter
+26843992,1_68127144,4th Quarter,Moneyline 4th Quarter
+26843989,2_64983544,Game,Spread
+26843989,3_64983544,Game,Total
+26843989,1_64983544,Game,Moneyline
+26843989,3_68139240,Team Totals,ATL Falcons: Team Total Touchdowns
+26843989,3_68139241,Team Totals,PIT Steelers: Team Total Touchdowns
+26843989,3_68139244,Team Totals,PIT Steelers: Team Total Points
+26843989,3_68139243,Team Totals,ATL Falcons: Team Total Points
+26843989,127706637,Team Totals (Bands),ATL Falcons Total Points Bands
+26843989,127706636,Team Totals (Bands),PIT Steelers Total Points Bands
+26843989,127706589,Drive Props,1st Drive - Field Goal Made
+26843989,3_68139252,1st Score,1st Score Yards
+26843989,1_68139245,1st Score,1st to Score
+26843989,3_68139251,1st Score,1st Touchdown Yards
+26843989,127706578,1st Score,First Scoring Play Type (6 Way)
+26843989,127706579,1st Score Method,First Score Method 3-Way
+26843989,2_68138332,1st Half,Spread 1st Half
+26843989,3_68138332,1st Half,Total 1st Half
+26843989,1_68138332,1st Half,Moneyline 1st Half
+26843989,2_68138333,1st Quarter,Spread 1st Quarter
+26843989,3_68138333,1st Quarter,Total 1st Quarter
+26843989,1_68138333,1st Quarter,Moneyline 1st Quarter
+26843989,2_68139262,2nd Quarter,Spread 2nd Quarter
+26843989,3_68139262,2nd Quarter,Total 2nd Quarter
+26843989,1_68139262,2nd Quarter,Moneyline 2nd Quarter
+26843989,2_68139263,3rd Quarter,Spread 3rd Quarter
+26843989,3_68139263,3rd Quarter,Total 3rd Quarter
+26843989,1_68139263,3rd Quarter,Moneyline 3rd Quarter
+26843989,2_68139264,4th Quarter,Spread 4th Quarter
+26843989,3_68139264,4th Quarter,Total 4th Quarter
+26843989,1_68139264,4th Quarter,Moneyline 4th Quarter
+26843991,2_64983546,Game,Spread
+26843991,3_64983546,Game,Total
+26843991,1_64983546,Game,Moneyline
+26843998,2_64983553,Game,Spread
+26843998,3_64983553,Game,Total
+26843998,1_64983553,Game,Moneyline
+26843998,3_68127225,Team Totals,MIA Dolphins: Team Total Touchdowns
+26843998,3_68127224,Team Totals,SF 49ers: Team Total Touchdowns
+26843998,3_68127228,Team Totals,MIA Dolphins: Team Total Points
+26843998,3_68127227,Team Totals,SF 49ers: Team Total Points
+26843998,127614238,Team Totals (Bands),MIA Dolphins Total Points Bands
+26843998,127614239,Team Totals (Bands),SF 49ers Total Points Bands
+26843998,127614191,Drive Props,1st Drive - Field Goal Made
+26843998,3_68127236,1st Score,1st Score Yards
+26843998,1_68127229,1st Score,1st to Score
+26843998,3_68127235,1st Score,1st Touchdown Yards
+26843998,127614180,1st Score,First Scoring Play Type (6 Way)
+26843998,127614181,1st Score Method,First Score Method 3-Way
+26843998,2_68118789,1st Half,Spread 1st Half
+26843998,3_68118789,1st Half,Total 1st Half
+26843998,1_68118789,1st Half,Moneyline 1st Half
+26843998,2_68118790,1st Quarter,Spread 1st Quarter
+26843998,3_68118790,1st Quarter,Total 1st Quarter
+26843998,1_68118790,1st Quarter,Moneyline 1st Quarter
+26843998,2_68127246,2nd Quarter,Spread 2nd Quarter
+26843998,3_68127246,2nd Quarter,Total 2nd Quarter
+26843998,1_68127246,2nd Quarter,Moneyline 2nd Quarter
+26843998,2_68127247,3rd Quarter,Spread 3rd Quarter
+26843998,3_68127247,3rd Quarter,Total 3rd Quarter
+26843998,1_68127247,3rd Quarter,Moneyline 3rd Quarter
+26843998,2_68127248,4th Quarter,Spread 4th Quarter
+26843998,3_68127248,4th Quarter,Total 4th Quarter
+26843998,1_68127248,4th Quarter,Moneyline 4th Quarter
+26843997,2_64983552,Game,Spread
+26843997,3_64983552,Game,Total
+26843997,1_64983552,Game,Moneyline
+26843997,3_68139292,Team Totals,LA Rams: Team Total Touchdowns
+26843997,3_68139293,Team Totals,SEA Seahawks: Team Total Touchdowns
+26843997,3_68139295,Team Totals,LA Rams: Team Total Points
+26843997,3_68139296,Team Totals,SEA Seahawks: Team Total Points
+26843997,127706792,Team Totals (Bands),LA Rams Total Points Bands
+26843997,127706791,Team Totals (Bands),SEA Seahawks Total Points Bands
+26843997,127706744,Drive Props,1st Drive - Field Goal Made
+26843997,3_68139304,1st Score,1st Score Yards
+26843997,1_68139297,1st Score,1st to Score
+26843997,3_68139303,1st Score,1st Touchdown Yards
+26843997,127706733,1st Score,First Scoring Play Type (6 Way)
+26843997,127706734,1st Score Method,First Score Method 3-Way
+26843997,2_68133370,1st Half,Spread 1st Half
+26843997,3_68133370,1st Half,Total 1st Half
+26843997,1_68133370,1st Half,Moneyline 1st Half
+26843997,2_68133371,1st Quarter,Spread 1st Quarter
+26843997,3_68133371,1st Quarter,Total 1st Quarter
+26843997,1_68133371,1st Quarter,Moneyline 1st Quarter
+26843997,2_68139314,2nd Quarter,Spread 2nd Quarter
+26843997,3_68139314,2nd Quarter,Total 2nd Quarter
+26843997,1_68139314,2nd Quarter,Moneyline 2nd Quarter
+26843997,2_68139315,3rd Quarter,Spread 3rd Quarter
+26843997,3_68139315,3rd Quarter,Total 3rd Quarter
+26843997,1_68139315,3rd Quarter,Moneyline 3rd Quarter
+26843997,2_68139316,4th Quarter,Spread 4th Quarter
+26843997,3_68139316,4th Quarter,Total 4th Quarter
+26843997,1_68139316,4th Quarter,Moneyline 4th Quarter
+26844000,2_64983557,Game,Spread
+26844000,3_64983557,Game,Total
+26844000,1_64983557,Game,Moneyline
+26844000,3_68127250,Team Totals,CIN Bengals: Team Total Touchdowns
+26844000,3_68127251,Team Totals,KC Chiefs: Team Total Touchdowns
+26844000,3_68127254,Team Totals,KC Chiefs: Team Total Points
+26844000,3_68127253,Team Totals,CIN Bengals: Team Total Points
+26844000,127614316,Team Totals (Bands),CIN Bengals Total Points Bands
+26844000,127614315,Team Totals (Bands),KC Chiefs Total Points Bands
+26844000,127614268,Drive Props,1st Drive - Field Goal Made
+26844000,3_68127262,1st Score,1st Score Yards
+26844000,1_68127255,1st Score,1st to Score
+26844000,3_68127261,1st Score,1st Touchdown Yards
+26844000,127614257,1st Score,First Scoring Play Type (6 Way)
+26844000,127614258,1st Score Method,First Score Method 3-Way
+26844000,2_68118793,1st Half,Spread 1st Half
+26844000,3_68118793,1st Half,Total 1st Half
+26844000,1_68118793,1st Half,Moneyline 1st Half
+26844000,2_68118794,1st Quarter,Spread 1st Quarter
+26844000,3_68118794,1st Quarter,Total 1st Quarter
+26844000,1_68118794,1st Quarter,Moneyline 1st Quarter
+26844000,2_68127272,2nd Quarter,Spread 2nd Quarter
+26844000,3_68127272,2nd Quarter,Total 2nd Quarter
+26844000,1_68127272,2nd Quarter,Moneyline 2nd Quarter
+26844000,2_68127273,3rd Quarter,Spread 3rd Quarter
+26844000,3_68127273,3rd Quarter,Total 3rd Quarter
+26844000,1_68127273,3rd Quarter,Moneyline 3rd Quarter
+26844000,2_68127274,4th Quarter,Spread 4th Quarter
+26844000,3_68127274,4th Quarter,Total 4th Quarter
+26844000,1_68127274,4th Quarter,Moneyline 4th Quarter
+26844001,2_64983558,Game,Spread
+26844001,3_64983558,Game,Total
+26844001,1_64983558,Game,Moneyline
+26844001,3_68127277,Team Totals,LA Chargers: Team Total Touchdowns
+26844001,3_68127276,Team Totals,LV Raiders: Team Total Touchdowns
+26844001,3_68127279,Team Totals,LV Raiders: Team Total Points
+26844001,3_68127280,Team Totals,LA Chargers: Team Total Points
+26844001,127614392,Team Totals (Bands),LA Chargers Total Points Bands
+26844001,127614393,Team Totals (Bands),LV Raiders Total Points Bands
+26844001,127614345,Drive Props,1st Drive - Field Goal Made
+26844001,3_68127288,1st Score,1st Score Yards
+26844001,1_68127281,1st Score,1st to Score
+26844001,3_68127287,1st Score,1st Touchdown Yards
+26844001,127614334,1st Score,First Scoring Play Type (6 Way)
+26844001,127614335,1st Score Method,First Score Method 3-Way
+26844001,2_68118791,1st Half,Spread 1st Half
+26844001,3_68118791,1st Half,Total 1st Half
+26844001,1_68118791,1st Half,Moneyline 1st Half
+26844001,2_68118792,1st Quarter,Spread 1st Quarter
+26844001,3_68118792,1st Quarter,Total 1st Quarter
+26844001,1_68118792,1st Quarter,Moneyline 1st Quarter
+26844001,2_68127298,2nd Quarter,Spread 2nd Quarter
+26844001,3_68127298,2nd Quarter,Total 2nd Quarter
+26844001,1_68127298,2nd Quarter,Moneyline 2nd Quarter
+26844001,2_68127299,3rd Quarter,Spread 3rd Quarter
+26844001,3_68127299,3rd Quarter,Total 3rd Quarter
+26844001,1_68127299,3rd Quarter,Moneyline 3rd Quarter
+26844001,2_68127300,4th Quarter,Spread 4th Quarter
+26844001,3_68127300,4th Quarter,Total 4th Quarter
+26844001,1_68127300,4th Quarter,Moneyline 4th Quarter
+26844003,2_64983562,Game,Spread
+26844003,3_64983562,Game,Total
+26844003,1_64983562,Game,Moneyline
+26844003,3_68139319,Team Totals,IND Colts: Team Total Touchdowns
+26844003,3_68139318,Team Totals,DAL Cowboys: Team Total Touchdowns
+26844003,3_68139322,Team Totals,IND Colts: Team Total Points
+26844003,3_68139321,Team Totals,DAL Cowboys: Team Total Points
+26844003,127706869,Team Totals (Bands),DAL Cowboys Total Points Bands
+26844003,127706868,Team Totals (Bands),IND Colts Total Points Bands
+26844003,127706821,Drive Props,1st Drive - Field Goal Made
+26844003,127003518,1st Score,1st Field Goal - on or after 14:00 Elapsed
+26844003,127003516,1st Score,1st Score - on or after 7:00 Elapsed
+26844003,3_68139330,1st Score,1st Score Yards
+26844003,1_68139323,1st Score,1st to Score
+26844003,127003517,1st Score,1st Touchdown - on or after 10:00 Elapsed
+26844003,3_68139329,1st Score,1st Touchdown Yards
+26844003,127706810,1st Score,First Scoring Play Type (6 Way)
+26844003,127706811,1st Score Method,First Score Method 3-Way
+26844003,2_68138336,1st Half,Spread 1st Half
+26844003,3_68138336,1st Half,Total 1st Half
+26844003,1_68138336,1st Half,Moneyline 1st Half
+26844003,2_68138337,1st Quarter,Spread 1st Quarter
+26844003,3_68138337,1st Quarter,Total 1st Quarter
+26844003,1_68138337,1st Quarter,Moneyline 1st Quarter
+26844003,2_68139340,2nd Quarter,Spread 2nd Quarter
+26844003,3_68139340,2nd Quarter,Total 2nd Quarter
+26844003,1_68139340,2nd Quarter,Moneyline 2nd Quarter
+26844003,2_68139341,3rd Quarter,Spread 3rd Quarter
+26844003,3_68139341,3rd Quarter,Total 3rd Quarter
+26844003,1_68139341,3rd Quarter,Moneyline 3rd Quarter
+26844003,2_68139342,4th Quarter,Spread 4th Quarter
+26844003,3_68139342,4th Quarter,Total 4th Quarter
+26844003,1_68139342,4th Quarter,Moneyline 4th Quarter
+26844004,2_64983563,Game,Spread
+26844004,3_64983563,Game,Total
+26844004,1_64983563,Game,Moneyline
+26844004,3_68127303,Team Totals,NO Saints: Team Total Touchdowns
+26844004,3_68127302,Team Totals,TB Buccaneers: Team Total Touchdowns
+26844004,3_68127306,Team Totals,NO Saints: Team Total Points
+26844004,3_68127305,Team Totals,TB Buccaneers: Team Total Points
+26844004,127614469,Team Totals (Bands),NO Saints Total Points Bands
+26844004,127614470,Team Totals (Bands),TB Buccaneers Total Points Bands
+26844004,127614422,Drive Props,1st Drive - Field Goal Made
+26844004,127004587,1st Score,1st Score - on or after 7:00 Elapsed
+26844004,3_68127314,1st Score,1st Score Yards
+26844004,1_68127307,1st Score,1st to Score
+26844004,127573649,1st Score,1st Touchdown - on or after 11:00 Elapsed
+26844004,3_68127313,1st Score,1st Touchdown Yards
+26844004,127614411,1st Score,First Scoring Play Type (6 Way)
+26844004,127614412,1st Score Method,First Score Method 3-Way
+26844004,2_68118795,1st Half,Spread 1st Half
+26844004,3_68118795,1st Half,Total 1st Half
+26844004,1_68118795,1st Half,Moneyline 1st Half
+26844004,2_68118796,1st Quarter,Spread 1st Quarter
+26844004,3_68118796,1st Quarter,Total 1st Quarter
+26844004,1_68118796,1st Quarter,Moneyline 1st Quarter
+26844004,2_68127324,2nd Quarter,Spread 2nd Quarter
+26844004,3_68127324,2nd Quarter,Total 2nd Quarter
+26844004,1_68127324,2nd Quarter,Moneyline 2nd Quarter
+26844004,2_68127325,3rd Quarter,Spread 3rd Quarter
+26844004,3_68127325,3rd Quarter,Total 3rd Quarter
+26844004,1_68127325,3rd Quarter,Moneyline 3rd Quarter
+26844004,2_68127326,4th Quarter,Spread 4th Quarter
+26844004,3_68127326,4th Quarter,Total 4th Quarter
+26844004,1_68127326,4th Quarter,Moneyline 4th Quarter
