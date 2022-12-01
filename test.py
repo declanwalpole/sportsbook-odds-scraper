@@ -2,6 +2,7 @@ import requests
 import pickle
 import json
 import csv
+import pandas as pd
 
 # Define classes
 
@@ -56,6 +57,10 @@ def translate_DK_to_match_dict(DK_dict):
     z['team2'] = z.pop('teamName2')
     z['starts_at'] = z.pop('startDate')
     z['event_name'] = z.pop('name')
+
+    # convert timestamp to string %Y-%m-%d %H:%M:%s
+    z['starts_at'] = pd.to_datetime(z['starts_at'])
+    z['starts_at'] = str(z['starts_at'])[:19]
 
     new_object = Event(**z)
     return new_object
@@ -197,8 +202,8 @@ try:
                         'team1', 'team2', 'starts_at', 'event_status'])
         for item in match_list:
             # print(item)
-            writer.writerow([item.event_name, item.league, item.event_id,
-                            item.team1, item.team2, item.starts_at, item.event_status])
+            writer.writerow([item.event_id, item.league,
+                            item.team1, item.team2, item.starts_at, item.event_name, item.event_status])
 except BaseException as e:
     print('BaseException:'+e)
 else:
