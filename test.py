@@ -9,6 +9,7 @@ import pandas as pd
 
 class Event():
     def __init__(self, event_name, league, event_id, team1, team2, starts_at, event_status):
+        self.id = ""
         self.league = league
         self.event_id = event_id
         self.team1 = team1
@@ -23,6 +24,7 @@ class Event():
 
 class Market():
     def __init__(self, event_id, market_id, market_group, market_name):
+        self.id = ""
         self.event_id = event_id
         self.market_id = market_id
         self.market_group = market_group
@@ -34,6 +36,7 @@ class Market():
 
 class Selection():
     def __init__(self, market_id, selection_id, selection_name, odds, line):
+        self.id = ""
         self.market_id = market_id
         self.selection_id = selection_id
         self.selection_name = selection_name
@@ -198,11 +201,11 @@ for e in events:
 try:
     with open('events.csv', 'w', newline='') as f:
         writer = csv.writer(f)
-        writer.writerow(['event_name', 'league', 'event_id',
-                        'team1', 'team2', 'starts_at', 'event_status'])
+        writer.writerow(['id', 'event_id', 'league',
+                        'team1', 'team2', 'starts_at', 'event_name', 'event_status'])
         for item in match_list:
             # print(item)
-            writer.writerow([item.event_id, item.league,
+            writer.writerow([item.id, item.event_id, item.league,
                             item.team1, item.team2, item.starts_at, item.event_name, item.event_status])
 except BaseException as e:
     print('BaseException:'+e)
@@ -214,10 +217,10 @@ try:
     with open('markets.csv', 'w', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(
-            ['event_id', 'market_id', 'market_group', 'market_name'])
+            ['id', 'event_id', 'market_id', 'market_group', 'market_name'])
         for item in market_list:
             # print(item)
-            writer.writerow([item.event_id, item.market_id,
+            writer.writerow([item.id, item.event_id, item.market_id,
                             item.market_group, item.market_name])
 except BaseException as e:
     print('BaseException:'+e)
@@ -227,11 +230,11 @@ else:
 try:
     with open('selections.csv', 'w', newline='') as f:
         writer = csv.writer(f)
-        writer.writerow(['market_id', 'selection_id',
+        writer.writerow(['id', 'market_id', 'selection_id',
                         'selection_name', 'odds', 'line'])
         for item in selection_list:
             # print(item)
-            writer.writerow([item.market_id, item.selection_id, item.selection_name,
+            writer.writerow([item.id, item.market_id, item.selection_id, item.selection_name,
                             item.odds, item.line])
 except BaseException as e:
     print('BaseException:'+e)
