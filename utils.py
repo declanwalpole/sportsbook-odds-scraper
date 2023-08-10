@@ -1,34 +1,60 @@
 from datetime import datetime
 import pandas as pd
 
-from draftkings_api import request_draftkings_event, parse_draftkings_json, convert_draftkings_info_to_df
+import draftkings_utils as DK
+from odds_dataclasses import convert_market_list_to_df, convert_selection_list_to_df
 
 
-def extract_event_id_from_url(url):
+def infer_sportsbook_of_url(url):
 
-    # Extract the digits between the last slash and the question mark (if any)
+    if "draftkings.com/event" in url:
+        return "DraftKings"
 
-    last_slash_index = url.rfind('/')
-    question_mark_index = url.find('?', last_slash_index)
+    raise ValueError("Invalid sportsbook URL")
 
-    if question_mark_index != -1:
-        event_id_str = url[last_slash_index + 1:question_mark_index]
+
+def extract_event_id_from_url(url, sportsbook):
+
+    if sportsbook == "DraftKings":
+        return DK.extract_event_id_from_url(url)
+
+    raise NotImplementedError(f"Method not yet implemented for {sportsbook}")
+
+
+def request_event(eventId, sportsbook):
+
+    if sportsbook == "DraftKings":
+        return DK.request_event(eventId)
+
+    raise NotImplementedError(f"Method not yet implemented for {sportsbook}")
+
+
+def get_event_name(json_response, sportsbook):
+    if sportsbook == "DraftKings":
+        return DK.get_event_name(json_response)
+
+    raise NotImplementedError(f"Method not yet implemented for {sportsbook}")
+
+
+def get_odds(json_response, sportsbook):
+    if sportsbook == "DraftKings":
+        return DK.get_odds(json_response)
+
     else:
-        event_id_str = url[last_slash_index + 1:]
+        raise NotImplementedError(
+            f"Method not yet implemented for {sportsbook}")
 
-    return event_id_str
 
+def convert_odds_to_df(odds):
+    if not odds[0] or not odds[1]:
+        # Return an empty DataFrame if any of the input lists are empty.
+        return pd.DataFrame()
 
-def scrape_DK_event(eventId):
-
-    json_response = request_draftkings_event(eventId)
-
-    (eventId, eventName, market_list,
-     selection_list) = parse_draftkings_json(json_response)
-
-    merged_df = convert_draftkings_info_to_df(market_list, selection_list)
-
-    return (eventId, eventName, merged_df)
+    market_df = convert_market_list_to_df(odds[0])
+    selection_df = convert_selection_list_to_df(odds[1])
+    merged_df = market_df.merge(
+        selection_df, on='market_id', how='inner').drop_duplicates()
+    return merged_df
 
 
 def preview_df_contents(df, num_rows=5):
@@ -39,19 +65,15 @@ def preview_df_contents(df, num_rows=5):
     pd.set_option('display.width', None)
 
     # Print the DataFrame nicely
-    print(f"Here are the first {num_rows} rows of data:")
+    print(f"Here is a preview of the first {num_rows} rows of data:")
     print(df.head(num_rows).to_string(index=False))
 
 
-def write_to_csv(eventId, eventName, df):
-
-    timestamp_suffix = datetime.now().strftime("%Y%m%d%H%M%S")
-    outfilename = f"{eventId} {eventName} {timestamp_suffix}.csv"
-    print(f"Writing to {outfilename}")
+def write_to_csv(df, csv_outfile):
 
     try:
-        df.to_csv(outfilename, index=False)
+        df.to_csv(csv_outfile, index=False)
         print(
-            f"CSV successfully written to '{outfilename}'.")
+            f"CSV successfully written to '{csv_outfile}'.")
     except Exception as err:
         print(f"Error occurred while writing to CSV: {err}")
