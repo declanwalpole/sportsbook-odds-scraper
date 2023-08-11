@@ -1,14 +1,18 @@
 from datetime import datetime
 import pandas as pd
+import re
 
-import draftkings_utils as DK
+import draftkings as DK
+import caesars as CZ
 from odds_dataclasses import convert_market_list_to_df, convert_selection_list_to_df
 
 
 def infer_sportsbook_of_url(url):
 
-    if "draftkings.com/event" in url:
+    if DK.match_url_pattern(url):
         return "DraftKings"
+    elif CZ.match_url_pattern(url):
+        return f"Caesars {CZ.get_state_abbrev(url).upper()}"
 
     raise ValueError("Invalid sportsbook URL")
 
@@ -17,14 +21,18 @@ def extract_event_id_from_url(url, sportsbook):
 
     if sportsbook == "DraftKings":
         return DK.extract_event_id_from_url(url)
+    elif sportsbook.startswith("Caesars"):
+        return CZ.extract_event_id_from_url(url)
 
     raise NotImplementedError(f"Method not yet implemented for {sportsbook}")
 
 
-def request_event(eventId, sportsbook):
+def request_event(url, eventId, sportsbook):
 
     if sportsbook == "DraftKings":
         return DK.request_event(eventId)
+    elif sportsbook.startswith("Caesars"):
+        return CZ.request_event(url, eventId, sportsbook)
 
     raise NotImplementedError(f"Method not yet implemented for {sportsbook}")
 

@@ -2,6 +2,10 @@ import requests
 from odds_dataclasses import Market, Selection
 
 
+def match_url_pattern(url):
+    return "sportsbook.draftkings.com/event" in url
+
+
 def extract_event_id_from_url(url):
 
     # Extract the digits between the last slash and the question mark (if any)
