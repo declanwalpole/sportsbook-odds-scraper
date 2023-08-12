@@ -67,28 +67,3 @@ def get_odds(json_content):
                             Selection(market_id, outcome_id, outcome_name, odds, line))
 
     return (market_list, selection_list)
-
-
-def translate_DK_to_market_dict(DK_dict, subcategoryName):
-    dict_for_translation = {
-        'market_id': DK_dict['providerOfferId'],
-        'market_group': subcategoryName,
-        'market_name': DK_dict['label']
-    }
-    return Market(**dict_for_translation)
-
-
-def translate_DK_to_selection_dict(DK_dict, market_id):
-    if "line" in DK_dict:
-        line = DK_dict['line']
-    else:
-        line = None
-
-    dict_for_translation = {
-        'market_id': market_id,
-        'selection_id': DK_dict['providerOutcomeId'],
-        'selection_name': DK_dict['label'],
-        'odds': DK_dict['oddsDecimal'],
-        'line': line,
-    }
-    return Selection(**dict_for_translation)

@@ -23,4 +23,4 @@ def scrape_event(url, csv_outfile=None, preview_head=None):
     print(
         f"Scrape completed.\nSportsbook: {sportsbook}\nEvent: {event_name} ({event_id})")
 
-    # return odds_df
+    return odds_df
