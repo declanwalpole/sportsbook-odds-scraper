@@ -31,8 +31,6 @@ def request_event(url, eventId, sportsbook):
 
     if sportsbook == "DraftKings":
         return DK.request_event(eventId)
-    elif sportsbook.startswith("Caesars"):
-        return CZ.request_event(url, eventId, sportsbook)
 
     raise NotImplementedError(f"Method not yet implemented for {sportsbook}")
 

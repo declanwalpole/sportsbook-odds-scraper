@@ -8,7 +8,7 @@ def scrape_event(url, csv_outfile=None, preview_head=None):
 
     event_id = extract_event_id_from_url(url, sportsbook)
 
-    json_response = request_event(event_id, sportsbook)
+    json_response = request_event(url, event_id, sportsbook)
 
     event_name = get_event_name(json_response, sportsbook)
 
