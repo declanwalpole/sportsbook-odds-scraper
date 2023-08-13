@@ -6,6 +6,8 @@ import draftkings as DK
 import caesars as CZ
 import bovada as BV
 import betrivers as BR
+import pointsbet as PB
+
 from odds_dataclasses import convert_market_list_to_df, convert_selection_list_to_df
 
 
@@ -19,6 +21,8 @@ def infer_sportsbook_of_url(url):
         return f"Caesars {CZ.get_state_abbrev(url).upper()}"
     elif BR.match_url_pattern(url):
         return f"Rush Street Interactive {BR.parse_location(url)}"
+    elif PB.match_url_pattern(url):
+        return f"Pointsbet {PB.parse_location(url)}"
 
     raise ValueError("Invalid sportsbook URL")
 
@@ -33,6 +37,8 @@ def extract_event_id_from_url(url, sportsbook):
         return CZ.extract_event_id_from_url(url)
     elif sportsbook.startswith("Rush Street Interactive"):
         return BR.extract_event_id_from_url(url)
+    elif sportsbook.startswith("Pointsbet"):
+        return PB.extract_event_id_from_url(url)
 
     raise NotImplementedError(f"Method not yet implemented for {sportsbook}")
 
@@ -45,6 +51,8 @@ def request_event(event_id, sportsbook):
         return BV.request_event(event_id)
     elif sportsbook.startswith("Rush Street Interactive"):
         return BR.request_event(event_id, sportsbook)
+    elif sportsbook.startswith("Pointsbet"):
+        return PB.request_event(event_id, sportsbook)
 
     raise NotImplementedError(f"Method not yet implemented for {sportsbook}")
 
@@ -56,6 +64,8 @@ def get_event_name(json_response, sportsbook):
         return BV.get_event_name(json_response)
     elif sportsbook.startswith("Rush Street Interactive"):
         return BR.get_event_name(json_response)
+    elif sportsbook.startswith("Pointsbet"):
+        return PB.get_event_name(json_response)
 
     raise NotImplementedError(f"Method not yet implemented for {sportsbook}")
 
@@ -67,6 +77,8 @@ def get_odds(json_response, sportsbook):
         return BV.get_odds(json_response)
     elif sportsbook.startswith("Rush Street Interactive"):
         return BR.get_odds(json_response)
+    elif sportsbook.startswith("Pointsbet"):
+        return PB.get_odds(json_response)
 
     else:
         raise NotImplementedError(
