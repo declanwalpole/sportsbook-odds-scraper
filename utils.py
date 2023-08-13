@@ -7,6 +7,8 @@ import caesars as CZ
 import bovada as BV
 import betrivers as BR
 import pointsbet as PB
+import tab as TAB
+import ladbrokes as LA
 
 from odds_dataclasses import convert_market_list_to_df, convert_selection_list_to_df
 
@@ -23,6 +25,10 @@ def infer_sportsbook_of_url(url):
         return f"Rush Street Interactive {BR.parse_location(url)}"
     elif PB.match_url_pattern(url):
         return f"Pointsbet {PB.parse_location(url)}"
+    elif TAB.match_url_pattern(url):
+        return f"TAB"
+    elif LA.match_url_pattern(url):
+        return f"Ladbrokes"
 
     raise ValueError("Invalid sportsbook URL")
 
@@ -39,6 +45,10 @@ def extract_event_id_from_url(url, sportsbook):
         return BR.extract_event_id_from_url(url)
     elif sportsbook.startswith("Pointsbet"):
         return PB.extract_event_id_from_url(url)
+    elif sportsbook == "TAB":
+        return TAB.extract_event_id_from_url(url)
+    elif sportsbook == "Ladbrokes":
+        return LA.extract_event_id_from_url(url)
 
     raise NotImplementedError(f"Method not yet implemented for {sportsbook}")
 
@@ -53,11 +63,15 @@ def request_event(event_id, sportsbook):
         return BR.request_event(event_id, sportsbook)
     elif sportsbook.startswith("Pointsbet"):
         return PB.request_event(event_id, sportsbook)
+    elif sportsbook == "TAB":
+        return TAB.request_event(event_id)
+    elif sportsbook == "Ladbrokes":
+        return LA.request_event(event_id)
 
     raise NotImplementedError(f"Method not yet implemented for {sportsbook}")
 
 
-def get_event_name(json_response, sportsbook):
+def get_event_name(json_response, sportsbook, event_id):
     if sportsbook == "DraftKings":
         return DK.get_event_name(json_response)
     elif sportsbook == "Bovada":
@@ -66,6 +80,10 @@ def get_event_name(json_response, sportsbook):
         return BR.get_event_name(json_response)
     elif sportsbook.startswith("Pointsbet"):
         return PB.get_event_name(json_response)
+    elif sportsbook == "TAB":
+        return TAB.get_event_name(json_response)
+    elif sportsbook == "Ladbrokes":
+        return LA.get_event_name(json_response, event_id)
 
     raise NotImplementedError(f"Method not yet implemented for {sportsbook}")
 
@@ -79,6 +97,8 @@ def get_odds(json_response, sportsbook):
         return BR.get_odds(json_response)
     elif sportsbook.startswith("Pointsbet"):
         return PB.get_odds(json_response)
+    elif sportsbook == "TAB":
+        return TAB.get_odds(json_response)
 
     else:
         raise NotImplementedError(

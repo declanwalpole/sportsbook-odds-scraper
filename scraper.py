@@ -10,7 +10,7 @@ def scrape_event(url, csv_outfile=None, preview_head=None):
 
     json_response = request_event(event_id, sportsbook)
 
-    event_name = get_event_name(json_response, sportsbook)
+    event_name = get_event_name(json_response, sportsbook, event_id)
 
     odds_df = convert_odds_to_df(get_odds(json_response, sportsbook))
 
