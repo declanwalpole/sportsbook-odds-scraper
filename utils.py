@@ -99,6 +99,8 @@ def get_odds(json_response, sportsbook):
         return PB.get_odds(json_response)
     elif sportsbook == "TAB":
         return TAB.get_odds(json_response)
+    elif sportsbook == "Ladbrokes":
+        return LA.get_odds(json_response)
 
     else:
         raise NotImplementedError(
