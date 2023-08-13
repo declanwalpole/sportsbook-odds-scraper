@@ -64,6 +64,8 @@ def request_event(event_id, sportsbook):
         return DK.request_event(event_id)
     elif sportsbook == "Bovada":
         return BV.request_event(event_id)
+    elif sportsbook.startswith("Caesars"):
+        return CZ.request_event(event_id, sportsbook)
     elif sportsbook.startswith("Rush Street Interactive"):
         return BR.request_event(event_id, sportsbook)
     elif sportsbook.startswith("Pointsbet"):
@@ -83,6 +85,8 @@ def get_event_name(json_response, sportsbook, event_id):
         return DK.get_event_name(json_response)
     elif sportsbook == "Bovada":
         return BV.get_event_name(json_response)
+    elif sportsbook.startswith("Caesars"):
+        return CZ.get_event_name(json_response)
     elif sportsbook.startswith("Rush Street Interactive"):
         return BR.get_event_name(json_response)
     elif sportsbook.startswith("Pointsbet"):
@@ -102,6 +106,8 @@ def get_odds(json_response, sportsbook):
         return DK.get_odds(json_response)
     elif sportsbook == "Bovada":
         return BV.get_odds(json_response)
+    elif sportsbook.startswith("Caesars"):
+        return CZ.get_odds(json_response)
     elif sportsbook.startswith("Rush Street Interactive"):
         return BR.get_odds(json_response)
     elif sportsbook.startswith("Pointsbet"):

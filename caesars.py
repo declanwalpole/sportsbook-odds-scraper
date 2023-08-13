@@ -1,8 +1,5 @@
 import re
-import gzip
-import json
-import io
-from seleniumwire import webdriver
+import requests
 
 from odds_dataclasses import Market, Selection
 
@@ -26,53 +23,57 @@ def extract_event_id_from_url(url):
     else:
         return None
 
-# does not run
 
-
-def request_event(url, event_id, sportsbook):
-    state_abbrev = sportsbook[-2:]
+def request_event(event_id, sportsbook):
+    state_abbrev = sportsbook[-2:].lower()
     api_endpoint = f'https://api.americanwagering.com/regions/us/locations/{state_abbrev}/brands/czr/sb/v3/events/{event_id}'
-    # print("API Endpoint:", api_endpoint)
-    content = scrape_w_selenium(url, api_endpoint, event_id)
-    return content
 
-# does not run
+    headers = {
+        'Accept': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+    }
+
+    response = requests.get(api_endpoint, headers=headers)
+
+    # Check if the response is in JSON format
+    if response.headers['Content-Type'].startswith('application/json'):
+        json_data = response.json()
+        return json_data
+    else:
+        raise ValueError(
+            "Expected application/json content type, but received " + response.headers['Content-Type'] + ". This may be due to Ladbrokes (australia) geo-blocking outside of Australia. Use VPN to resolve this error.")
 
 
-def scrape_w_selenium(url, api_endpoint, event_id):
-    # Set up headless browsing with Chrome
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument("--disable-gpu")  # Needed for some systems
-    chrome_options.add_argument("--ignore-certificate-errors")
-    # Disables various web security features
-    chrome_options.add_argument("--disable-proxy-certificate-handler")
+def remove_bars(string):
+    return string.replace("|", "")
 
-    # Initialize the browser
-    browser = webdriver.Chrome(options=chrome_options)
 
-    # Load the webpage
-    browser.get(url)
+def get_event_name(json_response):
+    return remove_bars(json_response['name'])
 
-    # Find the relevant network request and extract its response
-    for request in browser.requests:
-        # api_endpoint == request.url:
-        if "api.americanwagering.com/regions/us/locations/" in request.url and event_id in request.url:
-            print(request.url)
-            # Inside your loop that iterates over the requests:
-            response_body_bytes = request.response.body
-            #
-            # # Check for gzip encoding
-            if 'gzip' in request.response.headers.get('Content-Encoding', ''):
-                buffer = io.BytesIO(response_body_bytes)
-                with gzip.GzipFile(fileobj=buffer) as f:
-                    response_body_str = f.read().decode('utf-8')
-            else:
-                response_body_str = response_body_bytes.decode('utf-8')
 
-            if request.response.headers['Content-Type'].startswith('application/json'):
-                response_body_json = json.loads(response_body_str)
-                # Now you can work with response_body_json as a regular Python object
-            else:
-                print('Response is not JSON')
-    browser.quit()
-    return response_body_json
+def get_odds(json_content):
+    # Initialize lists to store markets and selections
+    # Initialize lists to store markets and selections
+    market_list = []
+    selection_list = []
+
+    # Iterating through markets
+    for market in json_content['markets']:
+        if market["display"] and market['active']:
+            market_name = market['displayName']
+            market_id = market['id']
+            market_group = None
+            market_list.append(
+                Market(market_id, market_group, market_name))
+            # Iterating through outcomes
+            for outcome in market['selections']:
+                if outcome["display"] and outcome['active']:
+                    outcome_name = remove_bars(outcome['name'])
+                    outcome_id = outcome['id']
+                    odds = outcome['price']['d']
+                    line = market.get('line', None)
+                    selection_list.append(
+                        Selection(market_id, outcome_id, outcome_name, odds, line))
+
+    return (market_list, selection_list)
