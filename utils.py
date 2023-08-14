@@ -1,6 +1,4 @@
-from datetime import datetime
 import pandas as pd
-import re
 
 import draftkings as DK
 import caesars as CZ
@@ -12,6 +10,19 @@ import ladbrokes as LA
 import betmgm as MGM
 
 from odds_dataclasses import convert_market_list_to_df, convert_selection_list_to_df
+
+
+# def get_implemented_sportsbooks():
+#     return [
+#         "DraftKings",
+#         "Bovada",
+#         "Caesars",
+#         "Rush Street Interactive",
+#         "Pointsbet",
+#         "TAB",
+#         "Ladbrokes",
+#         "BetMGM"
+#     ]
 
 
 def infer_sportsbook_of_url(url):
