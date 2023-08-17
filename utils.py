@@ -17,15 +17,17 @@ from odds_dataclasses import convert_market_list_to_df, convert_selection_list_t
 # def get_implemented_sportsbooks():
 #     return [
 #         "DraftKings",
-#         "Bovada",
+#         "BetMGM",
 #         "Caesars",
 #         "Rush Street Interactive",
 #         "Pointsbet",
+#         "Superbook",
+
+#         "Bovada",
+
 #         "TAB",
 #         "Ladbrokes",
-#         "BetMGM",
 #         "Sportsbet",
-#         "Superbook"
 #     ]
 
 

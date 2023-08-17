@@ -43,15 +43,14 @@ def get_event_name(json_response):
 
 
 def request_market_grouping(event_id, market_group_id):
-    markets_url = "https://www.sportsbet.com.au/apigw/sportsbook-sports/Sportsbook/Sports/Events/{event_id}/MarketGroupings/{market_group_id}/Markets"
+    markets_url = f"https://www.sportsbet.com.au/apigw/sportsbook-sports/Sportsbook/Sports/Events/{event_id}/MarketGroupings/{market_group_id}/Markets"
+
     headers = {
         'Accept': 'application/json',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
     }
-
     response = requests.get(markets_url, headers=headers)
 
-    # Check if the response is in JSON format
     if response.headers['Content-Type'].startswith('application/json'):
         json_data = response.json()
         return json_data
@@ -66,19 +65,29 @@ def get_odds(json_content):
     market_list = []
     selection_list = []
 
+    event_id = json_content["id"]
+
     for market_grouping in json_content["marketGrouping"]:
         market_group_id = market_grouping['id']
         market_group = market_grouping['name']
-        for market in market_grouping['marketList']:
+
+        market_grouping_json = request_market_grouping(
+            event_id, market_group_id)
+
+        for market in market_grouping_json:
             market_name = market['name']
             market_id = market['id']
             market_list.append(
                 Market(market_id, market_group, market_name))
+            for outcome in market['selections']:
+                selection_id = outcome['id']
+                selection_name = outcome['name']
+                odds = outcome['price']['winPrice']
+                line = outcome.get('displayHandicap', None)
+                if line:
+                    line = float(line)
 
-            selection_list.append(
-                Selection(market_id, 0, "some betting option", 2.0, None))
-        # market_grouping_json = request_market_grouping(
-        #     event_id, market_group_id)
-        # print(market_grouping_json)
+                selection_list.append(
+                    Selection(market_id, selection_id, selection_name, odds, line))
 
     return (market_list, selection_list)
