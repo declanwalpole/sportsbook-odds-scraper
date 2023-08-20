@@ -66,7 +66,7 @@ def extract_event_id_from_url(url, sportsbook):
     raise NotImplementedError(f"Method not yet implemented for {sportsbook}")
 
 
-def request_event(event_id, sportsbook):
+def request_event(event_id, url):
 
     if sportsbook == "DraftKings":
         return DK.request_event(event_id)

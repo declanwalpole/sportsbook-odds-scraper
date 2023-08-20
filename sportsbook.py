@@ -5,17 +5,14 @@ class Sportsbook:
     def match_url_pattern(self, url):
         raise NotImplementedError
 
-    def get_jurisdiction(self, url):
+    def extract_parameters_from_url(self, url):
         raise NotImplementedError
 
-    def get_event_id(self, url):
+    def request_event(self, params):
         raise NotImplementedError
 
-    def request_event(self, event_id, jurisdiction):
+    def parse_event_name(self, json_response):
         raise NotImplementedError
 
-    def get_event_name(self, json_response):
-        raise NotImplementedError
-
-    def get_odds(self, json_response):
+    def parse_odds(self, json_response, params):
         raise NotImplementedError
