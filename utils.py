@@ -14,23 +14,6 @@ import superbook as SU
 from odds_dataclasses import convert_market_list_to_df, convert_selection_list_to_df
 
 
-# def get_implemented_sportsbooks():
-#     return [
-#         "DraftKings",
-#         "BetMGM",
-#         "Caesars",
-#         "Rush Street Interactive",
-#         "Pointsbet",
-#         "Superbook",
-
-#         "Bovada",
-
-#         "TAB",
-#         "Ladbrokes",
-#         "Sportsbet",
-#     ]
-
-
 def infer_sportsbook_of_url(url):
 
     if DK.match_url_pattern(url):
@@ -193,3 +176,20 @@ def write_to_csv(df, csv_outfile):
             f"CSV successfully written to '{csv_outfile}'.")
     except Exception as err:
         print(f"Error occurred while writing to CSV: {err}")
+
+
+# def get_implemented_sportsbooks():
+#     return [
+#         "DraftKings",
+#         "BetMGM",
+#         "Caesars",
+#         "Rush Street Interactive",
+#         "Pointsbet",
+#         "Superbook",
+
+#         "Bovada",
+
+#         "TAB",
+#         "Ladbrokes",
+#         "Sportsbet",
+#     ]
