@@ -43,7 +43,7 @@ class EventScraper():
     def print_summary(self):
         print(
             f"URL: {self.url}"
-            f"\nSportsbook: {self.sportsbook.get_name()}"
+            f"\nSportsbook: {self.sportsbook.get_name()} {self.jurisdiction}"
             f"\nEvent: {self.event_name} ({self.event_id})"
             f"\nMarkets: {self.odds_df['market_id'].nunique()}"
             f"\nSelections: {len(self.odds_df)}"

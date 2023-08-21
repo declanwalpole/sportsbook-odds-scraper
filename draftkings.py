@@ -13,6 +13,9 @@ class DraftKings(Sportsbook):
 
     def extract_parameters_from_url(self, url):
 
+        return {'event_id': self._extract_event_id_from_url(url)}
+
+    def _extract_event_id_from_url(self, url):
         # Extract the digits between the last slash and the question mark (if any)
 
         last_slash_index = url.rfind('/')
@@ -23,11 +26,11 @@ class DraftKings(Sportsbook):
         else:
             event_id_str = url[last_slash_index + 1:]
 
-        return {'event_id': event_id_str}
+        return event_id_str
 
     def request_event(self, event_id, jurisdiction=None):
         DK_markets_url = f"https://sportsbook.draftkings.com/sites/US-SB/api/v3/event/{event_id}"
-        request_params = {}  # {'format': 'json'}
+        request_params = {'format': 'json'}
 
         try:
             response = requests.get(

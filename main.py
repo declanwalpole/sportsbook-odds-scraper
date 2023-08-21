@@ -5,7 +5,8 @@ from event_scraper import EventScraper
 scraper = EventScraper()
 
 # Define the URL and optional CSV output file for the first scrape
-url = "https://sportsbook.draftkings.com/event/det-lions-%40-kc-chiefs/28867533"
+# "https://sportsbook.draftkings.com/event/det-lions-%40-kc-chiefs/28867533"
+url = "https://sports.co.betmgm.com/en/sports/events/philadelphia-phillies-at-washington-nationals-ne-14541429"
 csv_outfile = "odds.csv"
 
 # Invoke the scrape method for the first scrape
