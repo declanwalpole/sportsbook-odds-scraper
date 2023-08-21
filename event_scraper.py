@@ -24,6 +24,7 @@ class EventScraper():
 
     def get_odds(self):
         self.sportsbook = SportsbookFactory.create(self.url)
+        print(self.sportsbook)
         params = self.sportsbook.extract_parameters_from_url(self.url)
         self.event_id = params.get('event_id')
         self.jurisdiction = params.get('jurisdiction', "Not applicable")

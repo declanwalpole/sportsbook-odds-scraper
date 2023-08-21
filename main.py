@@ -6,7 +6,8 @@ scraper = EventScraper()
 
 # Define the URL and optional CSV output file for the first scrape
 # "https://sportsbook.draftkings.com/event/det-lions-%40-kc-chiefs/28867533"
-url = "https://sports.co.betmgm.com/en/sports/events/philadelphia-phillies-at-washington-nationals-ne-14541429"
+# "https://sports.co.betmgm.com/en/sports/events/philadelphia-phillies-at-washington-nationals-ne-14541429"
+url = "https://pa.betrivers.com/?page=sportsbook#event/1020034569"
 csv_outfile = "odds.csv"
 
 # Invoke the scrape method for the first scrape
