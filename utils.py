@@ -144,18 +144,6 @@ def get_odds(json_response, sportsbook):
             f"Method not yet implemented for {sportsbook}")
 
 
-def convert_odds_to_df(odds):
-    if not odds[0] or not odds[1]:
-        # Return an empty DataFrame if any of the input lists are empty.
-        return pd.DataFrame()
-
-    market_df = convert_market_list_to_df(odds[0])
-    selection_df = convert_selection_list_to_df(odds[1])
-    merged_df = market_df.merge(
-        selection_df, on='market_id', how='inner').drop_duplicates()
-    return merged_df
-
-
 def preview_df_contents(df, num_rows=5):
     # Set display options for Pandas
     # Display all columns (None means unlimited)

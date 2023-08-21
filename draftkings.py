@@ -25,9 +25,9 @@ class DraftKings(Sportsbook):
 
         return {'event_id': event_id_str}
 
-    def request_event(self, params):
-        DK_markets_url = f"https://sportsbook.draftkings.com/sites/US-SB/api/v3/event/{params['event_id']}"
-        request_params = {'format': 'json'}
+    def request_event(self, event_id, jurisdiction=None):
+        DK_markets_url = f"https://sportsbook.draftkings.com/sites/US-SB/api/v3/event/{event_id}"
+        request_params = {}  # {'format': 'json'}
 
         try:
             response = requests.get(
@@ -37,13 +37,13 @@ class DraftKings(Sportsbook):
             return content
         except requests.exceptions.RequestException as error:
             print(
-                f"Error occurred while fetching DraftKings event {params['event_id']}: {error}")
+                f"Error occurred while fetching DraftKings event {event_id}: {error}")
             return None
 
     def parse_event_name(self, json_response):
         return json_response['event']["name"]
 
-    def parse_odds(self, json_response, params):
+    def parse_odds(self, json_response, event_id, jurisdiction):
 
         # Initialize lists to store markets and selections
         market_list = []
@@ -73,4 +73,4 @@ class DraftKings(Sportsbook):
                                                       selection_name=outcome['label'], odds=outcome['oddsDecimal'], line=line)
                                 selection_list.append(selection)
 
-        return (market_list, selection_list)
+        return self.convert_odds_to_df(market_list, selection_list)
