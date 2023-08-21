@@ -44,7 +44,7 @@ class EventScraper():
         print(
             f"URL: {self.url}"
             f"\nSportsbook: {self.sportsbook.get_name()} {self.jurisdiction if self.jurisdiction!='Not applicable' else ''}"
-            f"\nEvent: {self.event_name})"
+            f"\nEvent: {self.event_name}"
             f"\nMarkets: {self.odds_df['market_id'].nunique()}"
             f"\nSelections: {len(self.odds_df)}"
         )
