@@ -5,13 +5,14 @@ from bovada import Bovada
 from caesars import Caesars
 from pointsbet import PointsBet
 from superbook import Superbook
+from tab import TAB
 
 
 class SportsbookFactory:
     @staticmethod
     def create(url):
         sportsbooks = [DraftKings(), BetMGM(), BetRivers(),
-                       Bovada(), Caesars(), PointsBet(), Superbook()]
+                       Bovada(), Caesars(), PointsBet(), Superbook(), TAB()]
         for sportsbook in sportsbooks:
             if sportsbook.match_url_pattern(url):
                 return sportsbook
