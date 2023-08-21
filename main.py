@@ -8,7 +8,8 @@ scraper = EventScraper()
 # "https://sports.co.betmgm.com/en/sports/events/philadelphia-phillies-at-washington-nationals-ne-14541429"
 # "https://pa.betrivers.com/?page=sportsbook#event/1020034569"
 # "https://www.bovada.lv/sports/soccer/south-america/argentina/copa-de-la-liga-profesional/huracan-banfield-202308211700"
-url = "https://sportsbook.caesars.com/us/co/bet/baseball/420f7c5a-95d3-46ae-a523-7b7c86b8e563/chicago-cubs-at-detroit-tigers"
+# "https://sportsbook.caesars.com/us/co/bet/baseball/420f7c5a-95d3-46ae-a523-7b7c86b8e563/chicago-cubs-at-detroit-tigers"
+url = "https://oh.pointsbet.com/sports/tennis/WTA-Cleveland/168426"
 csv_outfile = "odds.csv"
 
 # Invoke the scrape method for the first scrape
