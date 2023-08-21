@@ -15,7 +15,7 @@ class Sportsbook:
     def request_event(self, event_id, jurisdiction=None):
         raise NotImplementedError
 
-    def parse_event_name(self, json_response):
+    def parse_event_name(self, json_response, event_id=None):
         raise NotImplementedError
 
     def parse_odds(self, json_response, event_id, jurisdiction=None):

@@ -30,7 +30,7 @@ class EventScraper():
         self.json_response = self.sportsbook.request_event(
             self.event_id, self.jurisdiction)
         self.event_name = self.sportsbook.parse_event_name(
-            self.json_response)
+            self.json_response, self.event_id)
         self.odds_df = self.sportsbook.parse_odds(
             self.json_response, self.event_id, self.jurisdiction)
 
