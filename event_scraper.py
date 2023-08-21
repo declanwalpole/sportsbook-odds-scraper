@@ -24,7 +24,6 @@ class EventScraper():
 
     def get_odds(self):
         self.sportsbook = SportsbookFactory.create(self.url)
-        print(self.sportsbook)
         params = self.sportsbook.extract_parameters_from_url(self.url)
         self.event_id = params.get('event_id')
         self.jurisdiction = params.get('jurisdiction', "Not applicable")
@@ -44,8 +43,8 @@ class EventScraper():
     def print_summary(self):
         print(
             f"URL: {self.url}"
-            f"\nSportsbook: {self.sportsbook.get_name()} {self.jurisdiction}"
-            f"\nEvent: {self.event_name} ({self.event_id})"
+            f"\nSportsbook: {self.sportsbook.get_name()} {self.jurisdiction if self.jurisdiction!='Not applicable' else ''}"
+            f"\nEvent: {self.event_name})"
             f"\nMarkets: {self.odds_df['market_id'].nunique()}"
             f"\nSelections: {len(self.odds_df)}"
         )
