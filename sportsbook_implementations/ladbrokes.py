@@ -31,7 +31,7 @@ class Ladbrokes(Sportsbook):
 
         return event_id_str
 
-    def request_event(self, event_id, jurisdiction=None):
+    def request_event_api(self, event_id, jurisdiction=None):
         markets_url = f'https://api.ladbrokes.com.au/v2/sport/event-card?id={event_id}'
 
         headers = {

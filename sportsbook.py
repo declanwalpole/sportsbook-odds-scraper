@@ -1,4 +1,5 @@
 import pandas as pd
+import requests
 from odds_dataclasses import convert_market_list_to_df, convert_selection_list_to_df
 
 
@@ -12,7 +13,7 @@ class Sportsbook:
     def extract_parameters_from_url(self, url):
         raise NotImplementedError
 
-    def request_event(self, event_id, jurisdiction=None):
+    def concatenate_api_url(self, event_id, jurisdiction=None):
         raise NotImplementedError
 
     def parse_event_name(self, json_response, event_id=None):

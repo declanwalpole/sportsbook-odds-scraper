@@ -28,19 +28,21 @@ class DraftKings(Sportsbook):
 
         return event_id_str
 
-    def request_event(self, event_id, jurisdiction=None):
-        DK_markets_url = f"https://sportsbook.draftkings.com/sites/US-SB/api/v3/event/{event_id}"
+    def concatenate_api_url(self, event_id, jurisdiction=None):
+        return f"https://sportsbook.draftkings.com/sites/US-SB/api/v3/event/{event_id}"
+
+    def request_event_api(self, api_url):
         request_params = {'format': 'json'}
 
         try:
             response = requests.get(
-                DK_markets_url, params=request_params, timeout=10)
+                api_url, params=request_params, timeout=10)
             response.raise_for_status()  # Raise an exception for non-2xx status codes
             content = response.json()
             return content
         except requests.exceptions.RequestException as error:
             print(
-                f"Error occurred while fetching DraftKings event {event_id}: {error}")
+                f"Error occurred while fetching DraftKings: {error}")
             return None
 
     def parse_event_name(self, json_response, event_id=None):

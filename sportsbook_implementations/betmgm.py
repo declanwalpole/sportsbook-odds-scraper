@@ -36,7 +36,7 @@ class BetMGM(Sportsbook):
         # Extract the digits between the last slash and the question mark (if any)
         return self.match_url_pattern(url).group(1).upper()
 
-    def request_event(self, event_id, jurisdiction):
+    def request_event_api(self, event_id, jurisdiction):
         markets_url = f'https://sports.{jurisdiction}.betmgm.com/cds-api/bettingoffer/fixture-view?x-bwin-accessid=OTU4NDk3MzEtOTAyNS00MjQzLWIxNWEtNTI2MjdhNWM3Zjk3&offerMapping=All&lang=en-us&country=US&fixtureIds={event_id}'
 
         headers = {
