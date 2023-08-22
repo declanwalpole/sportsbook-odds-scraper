@@ -48,7 +48,7 @@ class TAB(Sportsbook):
             raise ValueError(
                 "Expected application/json content type, but received " + response.headers['Content-Type'] + ". This may be due to TAB geo-blocking outside of Australia. Use VPN to resolve this error.")
 
-    def parse_event_name(self, json_response):
+    def parse_event_name(self, json_response, event_id=None):
         return json_response["name"]
 
     def parse_odds(self, json_response, event_id, jurisdiction):

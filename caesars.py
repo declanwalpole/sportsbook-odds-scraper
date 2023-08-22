@@ -51,7 +51,7 @@ class Caesars(Sportsbook):
     def _remove_bars(self, string):
         return string.replace("|", "")
 
-    def parse_event_name(self, json_response):
+    def parse_event_name(self, json_response, event_id=None):
         return self._remove_bars(json_response['name'])
 
     def parse_odds(self, json_response, event_id, jurisdiction):

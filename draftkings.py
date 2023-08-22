@@ -43,7 +43,7 @@ class DraftKings(Sportsbook):
                 f"Error occurred while fetching DraftKings event {event_id}: {error}")
             return None
 
-    def parse_event_name(self, json_response):
+    def parse_event_name(self, json_response, event_id=None):
         return json_response['event']["name"]
 
     def parse_odds(self, json_response, event_id, jurisdiction):

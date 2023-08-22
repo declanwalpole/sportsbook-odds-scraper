@@ -63,7 +63,7 @@ class BetRivers(Sportsbook):
             raise ValueError(
                 "Expected application/json content type, but received " + response.headers['Content-Type'])
 
-    def parse_event_name(self, json_response):
+    def parse_event_name(self, json_response, event_id=None):
         return json_response['events'][0]["name"]
 
     def parse_odds(self, json_response, event_id, jurisdiction):

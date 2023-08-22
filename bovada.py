@@ -46,7 +46,7 @@ class Bovada(Sportsbook):
             raise ValueError(
                 "Expected application/json content type, but received " + response.headers['Content-Type'])
 
-    def parse_event_name(self, json_response):
+    def parse_event_name(self, json_response, Event_id=None):
         return json_response[0]['events'][0]["description"]
 
     def parse_odds(self, json_response, event_id, jurisdiction):

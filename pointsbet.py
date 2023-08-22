@@ -12,7 +12,7 @@ class PointsBet(Sportsbook):
         return "PointsBet"
 
     def match_url_pattern(self, url):
-        return ".pointsbet.com/sports/" in url
+        return ".pointsbet.c" in url
 
     def extract_parameters_from_url(self, url):
 
@@ -56,7 +56,7 @@ class PointsBet(Sportsbook):
             raise ValueError(
                 "Expected application/json content type, but received " + response.headers['Content-Type'])
 
-    def parse_event_name(self, json_response):
+    def parse_event_name(self, json_response, event_id=None):
         return json_response["name"]
 
     def parse_odds(self, json_response, event_id, jurisdiction):
