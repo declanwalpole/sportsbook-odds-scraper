@@ -52,7 +52,7 @@ class BetMGM(Sportsbook):
             return json_data
         else:
             raise ValueError(
-                "Expected application/json content type, but received " + response.headers['Content-Type'] + ". This may be due to Ladbrokes (australia) geo-blocking outside of Australia. Use VPN to resolve this error.")
+                "Expected application/json content type, but received " + response.headers['Content-Type'] + ".")
 
     def parse_event_name(self, json_response, event_id=None):
         return json_response["fixture"]['name']['value']
