@@ -14,7 +14,6 @@ class Caesars(Sportsbook):
         return re.match(pattern, url)
 
     def extract_parameters_from_url(self, url):
-
         return {'event_id': self._extract_event_id_from_url(url),
                 'jurisdiction': self._extract_jurisdiction_from_url(url)}
 
@@ -30,23 +29,8 @@ class Caesars(Sportsbook):
     def _extract_jurisdiction_from_url(self, url):
         return self.match_url_pattern(url).group(1)
 
-    def request_event_api(self, event_id, jurisdiction):
-        api_endpoint = f'https://api.americanwagering.com/regions/us/locations/{jurisdiction}/brands/czr/sb/v3/events/{event_id}'
-
-        headers = {
-            'Accept': 'application/json',
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-        }
-
-        response = requests.get(api_endpoint, headers=headers)
-
-        # Check if the response is in JSON format
-        if response.headers['Content-Type'].startswith('application/json'):
-            json_data = response.json()
-            return json_data
-        else:
-            raise ValueError(
-                "Expected application/json content type, but received " + response.headers['Content-Type'] + ". This may be due to Ladbrokes (australia) geo-blocking outside of Australia. Use VPN to resolve this error.")
+    def concatenate_api_url(self, event_id, jurisdiction):
+        return f'https://api.americanwagering.com/regions/us/locations/{jurisdiction}/brands/czr/sb/v3/events/{event_id}'
 
     def _remove_bars(self, string):
         return string.replace("|", "")
@@ -63,7 +47,7 @@ class Caesars(Sportsbook):
         # Iterating through markets
         for market in json_response['markets']:
             if market["display"] and market['active']:
-                market_name = market['displayName']
+                market_name = self._remove_bars(market['name'])
                 market_id = market['id']
                 market_group = None
                 market_list.append(

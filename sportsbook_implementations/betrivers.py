@@ -46,22 +46,8 @@ class BetRivers(Sportsbook):
         else:
             return None
 
-    def request_event_api(self, event_id, jurisdiction):
-        markets_url = f'https://eu-offering-api.kambicdn.com/offering/v2018/rsi{jurisdiction.lower()}/betoffer/event/{event_id}.json?lang=en_US&includeParticipants=true'
-        headers = {
-            'Accept': 'application/json',
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-        }
-
-        response = requests.get(markets_url, headers=headers)
-
-        # Check if the response is in JSON format
-        if response.headers['Content-Type'] == 'application/json':
-            json_data = response.json()
-            return json_data
-        else:
-            raise ValueError(
-                "Expected application/json content type, but received " + response.headers['Content-Type'])
+    def concatenate_api_url(self, event_id, jurisdiction):
+        return f'https://eu-offering-api.kambicdn.com/offering/v2018/rsi{jurisdiction.lower()}/betoffer/event/{event_id}.json?lang=en_US&includeParticipants=true'
 
     def parse_event_name(self, json_response, event_id=None):
         return json_response['events'][0]["name"]

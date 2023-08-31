@@ -1,5 +1,6 @@
 from urllib.parse import urlparse
 import re
+import pandas as pd
 import requests
 from decimal import Decimal
 from odds_dataclasses import Market, Selection
@@ -36,35 +37,33 @@ class BetMGM(Sportsbook):
         # Extract the digits between the last slash and the question mark (if any)
         return self.match_url_pattern(url).group(1).upper()
 
-    def request_event_api(self, event_id, jurisdiction):
-        markets_url = f'https://sports.{jurisdiction}.betmgm.com/cds-api/bettingoffer/fixture-view?x-bwin-accessid=OTU4NDk3MzEtOTAyNS00MjQzLWIxNWEtNTI2MjdhNWM3Zjk3&offerMapping=All&lang=en-us&country=US&fixtureIds={event_id}'
-
-        headers = {
-            'Accept': 'application/json',
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-        }
-
-        response = requests.get(markets_url, headers=headers)
-
-        # Check if the response is in JSON format
-        if response.headers['Content-Type'].startswith('application/json'):
-            json_data = response.json()
-            return json_data
-        else:
-            raise ValueError(
-                "Expected application/json content type, but received " + response.headers['Content-Type'] + ".")
+    def concatenate_api_url(self, event_id, jurisdiction):
+        return f'https://sports.{jurisdiction}.betmgm.com/cds-api/bettingoffer/fixture-view?x-bwin-accessid=OTU4NDk3MzEtOTAyNS00MjQzLWIxNWEtNTI2MjdhNWM3Zjk3&offerMapping=All&lang=en-us&country=US&fixtureIds={event_id}'
 
     def parse_event_name(self, json_response, event_id=None):
         return json_response["fixture"]['name']['value']
 
     def parse_odds(self, json_response, event_id, jurisdiction):
 
+        fixture_games = json_response['fixture']['games']
+        odds_df = self.parse_markets_and_selections_from_games(fixture_games)
+
+        split_fixtures = json_response.get('splitFixtures')
+        if split_fixtures:
+            for fixture in split_fixtures:
+                temp_df = self.parse_markets_and_selections_from_games(
+                    fixture['games'])
+                odds_df = pd.concat([odds_df, temp_df], ignore_index=True)
+
+        return odds_df
+
+    def parse_markets_and_selections_from_games(self, games_json):
         # Initialize lists to store markets and selections
         market_list = []
         selection_list = []
 
         # Iterating through markets
-        for market in json_response['fixture']['games']:
+        for market in games_json:
             if market["visibility"] == "Visible":
                 market_name = market['name']['value']
                 market_id = market['id']

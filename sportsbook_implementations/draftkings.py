@@ -31,20 +31,6 @@ class DraftKings(Sportsbook):
     def concatenate_api_url(self, event_id, jurisdiction=None):
         return f"https://sportsbook.draftkings.com/sites/US-SB/api/v3/event/{event_id}"
 
-    def request_event_api(self, api_url):
-        request_params = {'format': 'json'}
-
-        try:
-            response = requests.get(
-                api_url, params=request_params, timeout=10)
-            response.raise_for_status()  # Raise an exception for non-2xx status codes
-            content = response.json()
-            return content
-        except requests.exceptions.RequestException as error:
-            print(
-                f"Error occurred while fetching DraftKings: {error}")
-            return None
-
     def parse_event_name(self, json_response, event_id=None):
         return json_response['event']["name"]
 
@@ -72,7 +58,7 @@ class DraftKings(Sportsbook):
                         outcomes = market['outcomes']
 
                         for outcome in outcomes:
-                            if not outcome.get('hidden'):
+                            if not outcome.get('hidden') and outcome.get('providerOutcomeId'):
                                 line = outcome.get('line')
                                 selection = Selection(market_id=market_output.market_id, selection_id=outcome['providerOutcomeId'],
                                                       selection_name=outcome['label'], odds=outcome['oddsDecimal'], line=line)

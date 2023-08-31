@@ -1,5 +1,4 @@
 import pandas as pd
-import requests
 from odds_dataclasses import convert_market_list_to_df, convert_selection_list_to_df
 
 
@@ -31,3 +30,6 @@ class Sportsbook:
             return merged_df
         else:
             return pd.DataFrame()
+
+    def get_api_params(self):
+        return None
