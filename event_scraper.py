@@ -84,15 +84,10 @@ class EventScraper():
     def scrape(self, url, csv_outfile=None, verbose=True):
 
         self.validate_url(url)
-
-        try:
-            self.sportsbook = SportsbookFactory.create(self.url)
-            self.infer_api_endpoint()
-            self.request_event_api(params=self.sportsbook.get_api_params())
-            self.get_odds()
-        except Exception as error:
-            print(f"An error occurred during scraping: {error}")
-            return None
+        self.sportsbook = SportsbookFactory.create(self.url)
+        self.infer_api_endpoint()
+        self.request_event_api(params=self.sportsbook.get_api_params())
+        self.get_odds()
 
         if (csv_outfile):
             self.write_odds_to_csv(csv_outfile)
@@ -100,4 +95,4 @@ class EventScraper():
         if (verbose):
             self.print_summary()
 
-        return self.odds_df
+        return self

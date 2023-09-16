@@ -8,7 +8,7 @@ class App:
     def __init__(self, root):
         self.root = root
         root.title("Odds Scraping Tool")
-        root.geometry('600x300')
+        root.geometry('600x400')
         root.eval('tk::PlaceWindow . center')
 
         # Initialize the scraper
@@ -62,14 +62,18 @@ class App:
         self.filename_entry = Entry(self.input_frame, width=30)
         self.filename_entry.pack()
 
+        self.scrape_button = Button(
+            self.input_frame, text="Scrape", command=self.scrape_event)
+        self.scrape_button.pack()
+
+        self.reset_button = Button(
+            self.input_frame, text="Clear Inputs", command=self.reset_fields)
+        self.reset_button.pack()
+
         self.message_display = StringVar()
         self.message_display_label = Label(
             self.input_frame, textvariable=self.message_display)
         self.message_display_label.pack()
-
-        self.scrape_button = Button(
-            self.input_frame, text="Scrape", command=self.scrape_event)
-        self.scrape_button.pack()
 
     def browse_folder(self):
         self.folder_path = filedialog.askdirectory()
@@ -95,13 +99,24 @@ class App:
                 filename += '.csv'
 
             csv_outfile = f"{self.folder_path}/{filename}"
-            self.scraper.scrape(url, csv_outfile)
+            scraping_result = self.scraper.scrape(url, csv_outfile)
 
-            time_now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            self.message_display.set(
-                f"Successfully wrote to {csv_outfile} at {time_now}")
+            formatted_message = '\n'.join(
+                [f"{k}: {v}" for k, v in scraping_result.get_summary().items()])
+
+            self.message_display.set("Success!\n"+formatted_message)
+
         except Exception as e:
             self.message_display.set(f"Error: {e}")
+
+    def reset_fields(self):
+        """
+        Resets the input fields, keeping the folder path.
+        """
+        self.selected_sportsbook.set("Select")
+        self.url_entry.delete(0, 'end')
+        self.filename_entry.delete(0, 'end')
+        self.message_display.set("")
 
 
 if __name__ == "__main__":
