@@ -12,8 +12,7 @@ class App:
         root.eval('tk::PlaceWindow . center')
 
         # Initialize the scraper
-        self.scraper = EventScraper()
-
+        self.scraper = None
         self.input_frame = Frame(root)
 
         self.initial_frame = Frame(root)
@@ -72,7 +71,7 @@ class App:
 
         self.message_display = StringVar()
         self.message_display_label = Label(
-            self.input_frame, textvariable=self.message_display)
+            self.input_frame, textvariable=self.message_display, wraplength=400)
         self.message_display_label.pack()
 
     def browse_folder(self):
@@ -86,12 +85,16 @@ class App:
         self.input_frame.pack(pady=10)
 
     def scrape_event(self):
+        self.message_display.set("")  # Reset the message
         thread = threading.Thread(target=self._scrape_event)
         thread.start()
 
     def _scrape_event(self):
+        def update_message(msg):
+            self.message_display.set(msg)
+
         try:
-            self.message_display.set("Scraping...")
+            self.root.after(0, update_message, "Scraping...")
             url = self.url_entry.get().strip()
             filename = self.filename_entry.get().strip() or "odds"
 
@@ -99,15 +102,19 @@ class App:
                 filename += '.csv'
 
             csv_outfile = f"{self.folder_path}/{filename}"
+
+            self.scraper = EventScraper()
+
             scraping_result = self.scraper.scrape(url, csv_outfile)
 
             formatted_message = '\n'.join(
                 [f"{k}: {v}" for k, v in scraping_result.get_summary().items()])
 
-            self.message_display.set("Success!\n"+formatted_message)
+            self.root.after(0, update_message,
+                            "Success!\n" + formatted_message)
 
         except Exception as e:
-            self.message_display.set(f"Error: {e}")
+            self.root.after(0, update_message, f"Error: {e}")
 
     def reset_fields(self):
         """

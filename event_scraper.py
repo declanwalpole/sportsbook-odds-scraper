@@ -58,7 +58,8 @@ class EventScraper():
             response.raise_for_status()
             self.json_response = response.json()
         except requests.RequestException as ex:
-            print(f"An error occurred when requesting the api: {ex}")
+            raise Exception(
+                f"An error occurred when requesting the api:\n{ex}")
 
     def write_odds_to_csv(self, csv_outfile):
         self.csv_outfile = csv_outfile
