@@ -31,7 +31,7 @@ class EventScraper():
         if parsed_url.scheme and parsed_url.netloc:
             self.url = url
         else:
-            raise ValueError("Invalid URL input")
+            raise ValueError("URL input is not a valid website URL")
 
     def infer_api_endpoint(self):
         params = self.sportsbook.extract_parameters_from_url(self.url)

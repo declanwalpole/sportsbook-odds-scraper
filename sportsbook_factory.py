@@ -22,4 +22,5 @@ class SportsbookFactory:
             if sportsbook.match_url_pattern(url):
                 return sportsbook
 
-        raise ValueError("Invalid sportsbook URL")
+        raise ValueError(
+            """Invalid sportsbook URL. Sportsbook may not be supported. If sportsbook is supported, check the URL itself and make sure it is for the event, not the league/sport page.""")
