@@ -1,5 +1,6 @@
 from tkinter import Tk
 from event_scraper import EventScraper
+from scraper_exception import ScraperException
 from ui.disclaimer_frame import DisclaimerFrame
 from ui.folder_frame import FolderFrame
 from ui.input_output_frame import InputOutputFrame
@@ -61,14 +62,14 @@ class App:
 
             self.scraper = EventScraper()
 
-            scraping_result = self.scraper.scrape(url, csv_outfile)
+            self.scraper.scrape(url, csv_outfile)
 
             formatted_message = '\n'.join(
-                [f"{k}: {v}" for k, v in scraping_result.get_summary().items()])
+                [f"{k}: {v}" for k, v in self.scraper.get_summary().items()])
 
             return {'status': "Success!", 'message': formatted_message}
 
-        except Exception as exception:
+        except ScraperException as exception:
             return {'status': "Error!", 'message': exception}
 
 

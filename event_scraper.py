@@ -4,6 +4,7 @@ from requests.adapters import HTTPAdapter
 from urllib3 import Retry
 
 from sportsbook_factory import SportsbookFactory
+from scraper_exception import ScraperException
 
 
 class EventScraper():
@@ -31,7 +32,7 @@ class EventScraper():
         if parsed_url.scheme and parsed_url.netloc:
             self.url = url
         else:
-            raise ValueError("URL input is not a valid website URL")
+            raise ScraperException(ScraperException.INVALID_URL_ERROR)
 
     def infer_api_endpoint(self):
         params = self.sportsbook.extract_parameters_from_url(self.url)
@@ -41,10 +42,13 @@ class EventScraper():
             self.event_id, self.jurisdiction)
 
     def get_odds(self):
-        self.event_name = self.sportsbook.parse_event_name(
-            self.json_response, self.event_id)
-        self.odds_df = self.sportsbook.parse_odds(
-            self.json_response, self.event_id, self.jurisdiction)
+        try:
+            self.event_name = self.sportsbook.parse_event_name(
+                self.json_response, self.event_id)
+            self.odds_df = self.sportsbook.parse_odds(
+                self.json_response, self.event_id, self.jurisdiction)
+        except Exception:
+            raise ScraperException(ScraperException.ODDS_PARSING_ERROR)
 
     def request_event_api(self, timeout=10, params=None):
         headers = {
@@ -57,9 +61,28 @@ class EventScraper():
                 self.api_url, timeout=timeout, headers=headers, params=params)
             response.raise_for_status()
             self.json_response = response.json()
-        except requests.RequestException as ex:
-            raise Exception(
-                f"An error occurred when requesting the api:\n{ex}")
+
+        except requests.HTTPError as ex:
+            status_code = ex.response.status_code
+            if 500 <= status_code < 600:
+                raise ScraperException(ScraperException.SERVER_ERROR)
+            elif status_code == 403:
+                raise ScraperException(ScraperException.FORBIDDEN_ERROR)
+            elif 400 <= status_code < 500:
+                raise ScraperException(ScraperException.CLIENT_ERROR)
+            else:
+                raise ScraperException(
+                    ScraperException.UNEXPECTED_HTTP_ERROR, status_code=status_code)
+
+        except requests.Timeout:
+            raise ScraperException(ScraperException.TIMEOUT_ERROR)
+
+        except requests.ConnectionError:
+            raise ScraperException(ScraperException.CONNECTION_ERROR)
+
+        except (requests.RequestException, requests.Timeout, requests.ConnectionError) as ex:
+            raise ScraperException(
+                ScraperException.UNEXPECTED_REQUEST_ERROR, ex=ex)
 
     def write_odds_to_csv(self, csv_outfile):
         self.csv_outfile = csv_outfile
@@ -82,7 +105,7 @@ class EventScraper():
         for key, value in summary.items():
             print(f"{key}: {value}")
 
-    def scrape(self, url, csv_outfile=None, verbose=True):
+    def scrape(self, url, csv_outfile=None):
 
         self.validate_url(url)
         self.sportsbook = SportsbookFactory.create(self.url)
@@ -92,8 +115,5 @@ class EventScraper():
 
         if (csv_outfile):
             self.write_odds_to_csv(csv_outfile)
-
-        if (verbose):
-            self.print_summary()
 
         return self

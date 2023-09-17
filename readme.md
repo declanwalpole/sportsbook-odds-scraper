@@ -70,8 +70,13 @@ scraper = EventScraper()
 
 # Set scraper input parameters
 url = "www.example_sportsbook.com/event-123"
-csv_outfile = "odds.csv"
 
-# Scrape method returns a pandas dataframe of odds
-odds_df = scraper.scrape(url, csv_outfile)
+# Scrape the URL
+scraper.scrape(url)
+
+# Summary of completed scrape
+scraper.print_summary()
+
+# preview the pandas df of scraped odds
+print(scraper.odds_df.head())
 ```
