@@ -6,7 +6,7 @@ sportsbook-odds-scraper is a Python library that fetches the current odds being 
 
 The user inputs a match URL from a supported sportsbook and the library returns all available markets and odds in a normalized pandas dataframe. There is also an option to write to CSV format.
 
-Every visible market type and selection is queried, not just core markets. Suspended/hidden betting options are ignored.
+Every visible market type and selection is queried, not just core markets. Suspended/hidden betting options are ignored. Treatment is the same for live and pregame matches.
 
 Instead of parsing the html, data is requested through the sportsbooks' (undocumented) APIs. Accordingly, no SLA can be given as the sites may change without warning or block your traffic.
 
