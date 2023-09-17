@@ -1,8 +1,8 @@
 from tkinter import Tk
 from event_scraper import EventScraper
-from ui_frames.disclaimer_frame import DisclaimerFrame
-from ui_frames.folder_frame import FolderFrame
-from ui_frames.input_output_frame import InputOutputFrame
+from ui.disclaimer_frame import DisclaimerFrame
+from ui.folder_frame import FolderFrame
+from ui.input_output_frame import InputOutputFrame
 
 
 class App:
