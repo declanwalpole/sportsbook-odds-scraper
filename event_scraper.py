@@ -31,14 +31,6 @@ class EventScraper():
         self.session.mount("https://", adapter)
         self.session.mount("http://", adapter)
 
-    def reset_state(self):
-        self.error_message = None
-        self.odds_df = None
-        self.event_name = None
-        self.scrape_timestamp = None
-        self.request_start_timestamp = None
-        self.request_end_timestamp = None
-
     def validate_url(self, url):
         parsed_url = urlparse(url)
         if parsed_url.scheme and parsed_url.netloc:
