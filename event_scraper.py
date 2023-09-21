@@ -93,14 +93,14 @@ class EventScraper():
             return {
                 "URL": self.url,
                 "Error": self.error_message,
-                "Scrape Timestamp": self.scrape_timestamp,
+                "Scrape Timestamp": self.timestamp_scrape_invoked,
                 "Request Start Timestamp": self.request_start_timestamp,
                 "Request End Timestamp": self.request_end_timestamp
             }
         else:
             summary = {
                 "URL": self.url,
-                "Scrape Timestamp": self.scrape_timestamp,
+                "Scrape Timestamp": self.timestamp_scrape_invoked,
                 "Request Start Timestamp": self.request_start_timestamp,
                 "Request End Timestamp": self.request_end_timestamp,
                 "Sportsbook": f"{self.sportsbook.get_name()} {self.jurisdiction if self.jurisdiction != 'Not applicable' else ''}",
@@ -113,7 +113,7 @@ class EventScraper():
             return summary
 
     def scrape(self, url, csv_outfile=None):
-        self.timestamp_scrape_invoked = datetime.datetime.now()
+        self.timestamp_scrape_invoked = datetime.now()
 
         try:
             self.validate_url(url)
