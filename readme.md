@@ -59,6 +59,8 @@ pip install -r requirements.txt
 python app.py
 ```
 
+![Screenshot of the gui](gui.png)
+
 ## Running the code
 
 ```python
