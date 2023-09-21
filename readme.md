@@ -10,7 +10,7 @@ Every visible market type and selection is queried, not just core markets. Suspe
 
 Instead of parsing the html, data is requested through the sportsbooks' (undocumented) APIs. Accordingly, no SLA can be given as the sites may change without warning or block your traffic.
 
-Can be run using the GUI app. Alternatively, the EventScraper class can be used as part of a larger analysis workflow.
+A [GUI](#gui) is provided. Alternatively, the EventScraper class can be used as part of an analytics workflow (see [examples](#sample)). 
 
 ### Supported Sportsbooks
 
@@ -54,12 +54,13 @@ pip install -r requirements.txt
 # Usage
 
 ## Running the GUI
-
+<a name="gui"></a>
 ```powershell
 python app.py
 ```
-
-![Screenshot of the gui](gui.png)
+<p align="center">
+    <img src="gui.png" width="350">
+</p>
 
 ## Running the code
 
@@ -79,12 +80,12 @@ scraper.scrape(url)
 # Summary of completed scrape
 scraper.print_summary()
 
-# preview the pandas df of scraped odds
+# Preview the pandas df of scraped odds
 print(scraper.odds_df.head())
 ```
 
 # Sample Use Cases
-
+<a name="sample"></a>
 ## Time Series of Live MLB Game Odds
 
 Suppose you are interested in how odds fluctuate through time. We can repeatedly scrape the same match url to accumulate a history of lines and odds.
@@ -127,8 +128,9 @@ filtered_df = all_odds_df[all_odds_df['selection_id'] == selection_filter]
 plt.plot(filtered_df['timestamp'], filtered_df['odds'])
 plt.show()
 ```
-
-![Time series plot of moneyline odds](texML.png)
+<p align="center">
+    <img src="texML.png" width="800">
+</p>
 
 ## Distribution of WNBA Totals
 
