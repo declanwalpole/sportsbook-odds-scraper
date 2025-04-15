@@ -1,7 +1,3 @@
-from urllib.parse import urlparse
-import re
-import requests
-from decimal import Decimal
 from odds_dataclasses import Market, Selection
 from sportsbook import Sportsbook
 
@@ -12,7 +8,7 @@ class PointsBet(Sportsbook):
         return "PointsBet"
 
     def match_url_pattern(self, url):
-        return ".pointsbet.c" in url
+        return "pointsbet.com.au" in url
 
     def extract_parameters_from_url(self, url):
 
@@ -34,13 +30,10 @@ class PointsBet(Sportsbook):
         return event_id_str
 
     def _extract_jurisdiction_from_url(self, url):
-        parsed_url = urlparse(url)
-        # Extracting the state from the subdomain (first two characters)
-        state = parsed_url.hostname.split('.')[0].upper()
-        return state
+        return ""
 
     def concatenate_api_url(self, event_id, jurisdiction):
-        return f'https://api.{jurisdiction}.pointsbet.com/api/mes/v3/events/{event_id}'
+        return f'https://api.pointsbet.com/api/mes/v3/events/{event_id}'
 
     def parse_event_name(self, json_response, event_id=None):
         return json_response["name"]
