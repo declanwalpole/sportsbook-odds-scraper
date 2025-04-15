@@ -15,13 +15,13 @@ scraper = EventScraper()
 # "https://www.sportsbet.com.au/betting/basketball-aus-other/fiba-world-cup-men/angola-v-china-7600223"
 # "https://www.ladbrokes.com.au/sports/rugby-league/nrl/brisbane-broncos-vs-melbourne-storm/bcdbdfbc-98d6-45e3-84a4-66a2b88e69fc"
 
-url = "https://sportsbook.caesars.com/us/nj/bet/volleyball/31e49538-2515-4e80-bec9-f795b619dba5/poland-w-vs-south-korea-w"
+url = "https://pointsbet.com.au/sports/rugby-league/NRL/2245825"
 
 # Invoke the scrape method
 scraper.scrape(url)
 
 # summary of completed scrape
-scraper.print_summary()
+print(scraper.get_summary())
 
 # preview the pandas df of scraped odds
 print(scraper.odds_df.head())
