@@ -18,12 +18,12 @@ A [GUI](#gui) is provided. Alternatively, the EventScraper class can be used as 
 - BetMGM
 - Caesars
 - BetRivers/Sugarhouse
-- PointsBet
 - Superbook
 - Bovada
 - SportsBet (Aus)^
-- TAB (Aus)
+- TAB (Aus) -- Appears to be behind strong bot-detection
 - Ladbrokes (Aus)
+- PointsBet (Aus)
 
 _NB: Sportsbooks may reject http requests based on your IP location. Use a VPN when trying to scrape odds from overseas._
 
@@ -76,9 +76,6 @@ url = "www.example_sportsbook.com/event-123"
 
 # Scrape the URL
 scraper.scrape(url)
-
-# Summary of completed scrape
-scraper.print_summary()
 
 # Preview the pandas df of scraped odds
 print(scraper.odds_df.head())
